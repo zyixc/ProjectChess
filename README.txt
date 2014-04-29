@@ -1,6 +1,7 @@
 Eclipse Kepler:
 	-Android Development Toolkit 	[https://dl-sll.google.com/android/eclipse]
 	-Eclipse Git Team Provider	[https://download.eclipse.org/releases/kepler/]	Collaboration
+	 Github				[https://windows.github.com/] (more reliable)?
 	-Papyrus			[https://download.eclipse.org/releases/kepler/] Modeling
 
 
