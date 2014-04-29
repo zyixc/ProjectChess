@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\zyixc\Documents\GitHub\ProjectChess\.metadata\.plugins\org.eclipse.jdt.core
+2310912435.index
+1073046668.index
+1079503846.index
