@@ -1,10 +1,10 @@
-###Eclipse Kepler
+###Eclipse Kepler / Software Needed
 - Android Development Toolkit 	https://dl-sll.google.com/android/eclipse
 - Eclipse Git Team Provider		https://download.eclipse.org/releases/kepler/
-- Github							https://windows.github.com/
-- Papyrus							https://download.eclipse.org/releases/kepler/
+- Github						https://windows.github.com/
+- Papyrus						https://download.eclipse.org/releases/kepler/
 
-###Github
+###Github Information
 - https://github.com/zyixc/ProjectChess
 
 - ProjectChess (Code of the Android project) 
