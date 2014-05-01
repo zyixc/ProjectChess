@@ -4,4 +4,13 @@
 	</section>
 	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ProjectChessModel/model_database.uml:uml:Type:type">
 	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ProjectChessModel/model_usecase.uml:types:String:body">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/ProjectChessModel/model_usecase.uml#_Vf9ZwNElEeO4DJdpnu78Yg"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ProjectChessModel/model_usecase.uml:uml:UseCase:useCase">
+	</section>
 </section>
