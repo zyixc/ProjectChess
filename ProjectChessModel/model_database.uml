@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_QIYkANEYEeO0NcZIFOUyUQ" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="_R2BKgNEYEeO0NcZIFOUyUQ" name="player">
+    <ownedAttribute xmi:id="_uGwqANEdEeOIqIFmsHAYdQ" name="id"/>
+    <ownedAttribute xmi:id="_urDp4NEdEeOIqIFmsHAYdQ" name="first_name"/>
+    <ownedAttribute xmi:id="_uuuo8NEdEeOIqIFmsHAYdQ" name="last_name"/>
+    <ownedAttribute xmi:id="_uy6lYNEdEeOIqIFmsHAYdQ" name="fide_id"/>
+    <ownedAttribute xmi:id="_uw0ToNEdEeOIqIFmsHAYdQ" name="fide_rating"/>
+    <ownedAttribute xmi:id="_u1CFQNEdEeOIqIFmsHAYdQ" name="date_of_birth"/>
+    <ownedAttribute xmi:id="_u267oNEdEeOIqIFmsHAYdQ" name="country"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TwIt0NEYEeO0NcZIFOUyUQ" name="game">
+    <ownedAttribute xmi:id="_vvydUNEdEeOIqIFmsHAYdQ" name="id"/>
+    <ownedAttribute xmi:id="_vx4IANEdEeOIqIFmsHAYdQ" name="date"/>
+    <ownedAttribute xmi:id="_vz3sENEdEeOIqIFmsHAYdQ" name="location"/>
+    <ownedAttribute xmi:id="_v1jHENEdEeOIqIFmsHAYdQ" name="black_id"/>
+    <ownedAttribute xmi:id="_v3FYINEdEeOIqIFmsHAYdQ" name="white_id"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w5ID8NEdEeOIqIFmsHAYdQ" name="first_move">
+    <ownedAttribute xmi:id="_w5ID8tEdEeOIqIFmsHAYdQ" name="id"/>
+    <ownedAttribute xmi:id="_w5ID8dEdEeOIqIFmsHAYdQ" name="player_id"/>
+    <ownedAttribute xmi:id="_w5ID89EdEeOIqIFmsHAYdQ" name="1st_move" isUnique="false"/>
+    <ownedAttribute xmi:id="_w5ID9NEdEeOIqIFmsHAYdQ" name="1st_move_count" isUnique="false"/>
+    <ownedAttribute xmi:id="_w5ID9dEdEeOIqIFmsHAYdQ" name="2nd_move" isUnique="false"/>
+    <ownedAttribute xmi:id="_w5ID9tEdEeOIqIFmsHAYdQ" name="2nd_move_count" isUnique="false"/>
+    <ownedAttribute xmi:id="_w5ID99EdEeOIqIFmsHAYdQ" name="3rd_move" isUnique="false"/>
+    <ownedAttribute xmi:id="_-eY_wNEdEeOIqIFmsHAYdQ" name="3rd_move_count" isUnique="false"/>
+    <ownedAttribute xmi:id="_-hL1ENEdEeOIqIFmsHAYdQ" name="4th_move" isUnique="false"/>
+    <ownedAttribute xmi:id="_-jlBwNEdEeOIqIFmsHAYdQ" name="4th_move_count" isUnique="false"/>
+    <ownedAttribute xmi:id="_-liJkNEdEeOIqIFmsHAYdQ" name="5th_move" isUnique="false"/>
+    <ownedAttribute xmi:id="_-nEaoNEdEeOIqIFmsHAYdQ" name="5th_move_count" isUnique="false"/>
+  </packagedElement>
+</uml:Model>
