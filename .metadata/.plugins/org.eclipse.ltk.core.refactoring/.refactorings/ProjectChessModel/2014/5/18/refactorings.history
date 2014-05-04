@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;ProjectChessModel/model.di&apos; to &apos;model_program.di&apos;" description="Rename resource &apos;model.di&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="model.di" name="model_program.di" stamp="1398941513785" updateReferences="true"/>
-</session>
