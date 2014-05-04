@@ -1,8 +1,8 @@
 ###Eclipse Kepler / Software Needed
 - Android Development Toolkit 	https://dl-sll.google.com/android/eclipse
-- Eclipse Git Team Provider		https://download.eclipse.org/releases/kepler/
 - Github						https://windows.github.com/
-- Papyrus						https://download.eclipse.org/releases/kepler/
+- Java SDK 8u5                  http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+- Android SDK                   http://developer.android.com/sdk/index.html?hl=sk
 
 ###Github Information
 - https://github.com/zyixc/ProjectChess
@@ -11,5 +11,3 @@
 	http://developer.android.com/tools/sdk/eclipse-adt.html
 
 - ProjectChessModel (Modeling of the Android project, written in Papyrus(UML2 http://www.omg.org)
-	http://www.eclipse.org/papyrus/
-	http://www.eclipse.org/papyrus/usersTutorials/usersTutorialsIndex.php
