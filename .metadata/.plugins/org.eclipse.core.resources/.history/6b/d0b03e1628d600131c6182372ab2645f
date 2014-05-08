@@ -1,0 +1,64 @@
+import java.io.BufferedReader;
+import java.lang.ClassNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class main {
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException, NumberFormatException, IOException {
+		//SQL CONNECTION
+		Class.forName("com.mysql.jdbc.Driver"); 
+		String url = "jdbc:mysql://localhost/test";
+	    Connection conn = DriverManager.getConnection(url,"root","");  
+
+		int emptyLineCount = 0;
+		int gameCount = 1;
+		
+		BufferedReader br = new BufferedReader(new FileReader("Z:\\chessdatabase\\millionbase-2.22.pgn"));
+		 String line = null;
+ 
+		 while ((line = br.readLine()) != null) {
+			 String Event=null, Date=null, White=null, Black=null, Result=null, WhiteElo=null, BlackElo=null;
+			 StringBuilder Moves = new StringBuilder();
+			 
+			 if(line.length()>0){
+				 if(line.contains("Event "))	 Event = line.split("\"")[1];
+				 if(line.contains("Date "))	 Date = line.split("\"")[1];
+				 if(line.contains("White "))	 White = line.split("\"")[1];
+				 if(line.contains("Black "))	 Black = line.split("\"")[1];
+				 if(line.contains("Result "))	 Result = line.split("\"")[1];
+				 if(line.contains("WhiteElo "))	 WhiteElo = line.split("\"")[1];
+				 if(line.contains("BlackElo "))	 BlackElo = line.split("\"")[1];
+				 
+				 if(line.contains("1.")){
+					 while(line.length()>0){
+						 Moves.append(line);
+						 line = br.readLine();
+					 } emptyLineCount++;
+				 }
+				 
+				 if(gameCount==100){
+					 return;
+				 }
+			 }			 
+			 
+			 if(emptyLineCount == 2) {
+			
+				 Statement statement = conn.createStatement();
+				 String sqlStatement;
+				 
+				 sqlStatement = "INSERT INTO Games " + "VALUES (" + gameCount + ",'" + Event + "','" + Date + "','" + White + "','" + Black + "','" + Result + "'," + WhiteElo + ",'" + BlackElo + "','" + Moves + "')";
+				 statement.executeUpdate(sqlStatement);
+			}
+		 }
+		 conn.close();
+		 br.close();
+		 System.out.println("JOB DONE!");
+	}
+
+}

@@ -3,22 +3,18 @@
 	<TreeState name="ModelRepository" viewX="0" viewY="0">
 		<ExpandedPath>ModelRepository</ExpandedPath>
 	</TreeState>
-	<TreeState name="DiagramNavigator" viewX="0" viewY="189">
+	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
-		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
-		<ExpandedPath>UseCaseDiagram</ExpandedPath>
-		<ExpandedPath>ClassDiagram</ExpandedPath>
-		<ExpandedPath>DiagramNavigator,Requirements Capturing</ExpandedPath>
-		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
-		<ExpandedPath>ERDiagram</ExpandedPath>
-		<ExpandedPath>DiagramNavigator,SysML</ExpandedPath>
-		<ExpandedPath>DiagramNavigator,Others</ExpandedPath>
-		<SelectedPath>ERDiagram,rfQnE6KFS_iyawYY</SelectedPath>
+		<SelectedPath>DiagramNavigator</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser,.yoTE6KFS_iyawTV</ExpandedPath>
 	</TreeState>
-	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+	<TreeState name="LogicalView" viewX="0" viewY="0">
+		<SelectedPath>LogicalView</SelectedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigatorHierarchy" viewX="0" viewY="0">
+		<ExpandedPath>0hdlE6KFS_iyawNk,.yoTE6KFS_iyawTV</ExpandedPath>
+		<SelectedPath>0hdlE6KFS_iyawNk,.yoTE6KFS_iyawTV,MuQTE6KFS_iyawTK</SelectedPath>
+	</TreeState>
 </ProjectTreeState>

@@ -1,0 +1,27 @@
+
+public class StringCorrecter {
+String correct(String s){
+		
+		while(s.contains("\'"))
+				s = s.substring(0,s.indexOf('\'')) + "\\" + s.substring(s.indexOf('\''),s.length());
+		
+		
+		
+		while(s.contains("\""))
+				s = s.substring(0,s.indexOf('\"')) + "\\" + s.substring(s.indexOf('\"'),s.length());
+		
+		return s;
+	}
+	
+	String commentCorrect(String s) {
+		while(s.indexOf("{")!=-1 && s.indexOf("}")!=-1)		
+			s = s.substring(0, s.indexOf("{")-1) + s.substring(s.indexOf("}")+1, s.length() );	
+		
+		//while(s.indexOf("(")!=-1 && s.indexOf(")")!=-1)		
+			//s = s.substring(0, s.indexOf("(")-1) + s.substring(s.indexOf(")")+1, s.length() );	
+		
+		System.out.println(s);
+		
+		return s;
+	}
+}

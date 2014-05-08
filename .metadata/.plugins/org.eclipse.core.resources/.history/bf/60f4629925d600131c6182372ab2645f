@@ -1,0 +1,152 @@
+import java.io.BufferedReader;
+import java.lang.ClassNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class main {
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException, NumberFormatException, IOException {
+		//SQL CONNECTION
+		Class.forName("com.mysql.jdbc.Driver"); 
+		String url = "jdbc:mysql://localhost/test";
+	    Connection conn = DriverManager.getConnection(url,"root","");  
+		
+		String Event=null, Date=null, White=null, Black=null, Result=null, WhiteElo=null, BlackElo=null;
+		
+		int WhiteEloInt = -1, BlackEloInt = -1;
+		int WhiteNullCount = 0, BlackNullCount = 0, MovesNullCount = 0;
+		int emptyLineCount = 0;
+		int gameCount = 1;
+		StringBuilder Moves = new StringBuilder();
+		
+		BufferedReader br = new BufferedReader(new FileReader("Z:\\chessdatabase\\millionbase-2.22.pgn"));
+
+		 String line = null;
+		 
+		 StringCorrecter stringCorrecter = new StringCorrecter();
+		 
+		 while ((line = br.readLine()) != null) {
+			 if(line.length()>0){
+				 if(line.contains("Event"))	 Event = line.split("\"")[0];
+				 if(line.contains("Date"))	 Date = line.split("\"")[0];
+				 if(line.contains("White"))	 White = line.split("\"")[0];
+				 if(line.contains("Black"))	 Black = line.split("\"")[0];
+				 if(line.contains("Result"))	 Result = line.split("\"")[0];
+				 if(line.contains("WhiteElo"))	 WhiteElo = line.split("\"")[0];
+				 if(line.contains("BlackElo"))	 BlackElo = line.split("\"")[0];
+				 
+				 if(line.contains("1.")){
+					 while(line.length()>0){
+						 Moves.append(line);
+						 line = br.readLine();
+					 } emptyLineCount++;
+				 }
+				 
+				 if(gameCount==100){
+					 return;
+				 }
+			 }			 
+			 
+			 if(emptyLineCount == 2) {
+			
+				 Statement statement = conn.createStatement();
+				 String sqlStatement;
+				 
+				 //PREVENT SYNTAX ERROR BECAUSE OF COMMENTS IN MOVES
+
+					/* String tempMoves;
+					 tempMoves = Moves.substring(0,Moves.toString().indexOf("\'"));
+					 if(tempMoves.toString().indexOf("\"")>0)
+						 tempMoves = tempMoves.substring(0,tempMoves.toString().indexOf("\""));
+					 System.out.println(tempMoves);
+					 Moves.setLength(0);
+					 Moves.append(tempMoves);*/
+				 	String tempMoves;
+				 	int apos = 0;
+				 	int bpos = 0;
+				 	
+				 	while((Moves.substring(apos,Moves.length()).toString().indexOf("\'") > apos) || (Moves.substring(bpos,Moves.length()).toString().indexOf("\"") > bpos)) {
+				 		
+						/* if( (Moves.toString().indexOf("\'") > apos) ) {
+							 System.out.println(Moves);
+							 System.out.println("Index of \': " + Moves.toString().indexOf("\'"));
+							 System.out.println("End index: " + Moves.length());
+							 
+							 apos = Moves.substring(apos,Moves.length()).toString().indexOf("\'");
+							 
+							 tempMoves = Moves.append(Moves.substring( 0, apos ) + "\\" + Moves.substring( apos, Moves.length())).toString();
+							 Moves.setLength(0);
+							 Moves.append(tempMoves);
+							 
+							
+						 }
+						 
+						 if( (Moves.toString().indexOf("\"") > bpos) ) {
+							 System.out.println(Moves);
+							 System.out.println("Index of \": " + Moves.toString().indexOf("\""));
+							 System.out.println("End index: " + Moves.length());
+							 
+							 bpos = Moves.substring(bpos,Moves.length()).toString().indexOf("\"");
+							 
+							 tempMoves = Moves.substring( 0, bpos ) + "\\" + Moves.substring( bpos, Moves.length());
+							 Moves.setLength(0);
+							 Moves.append(tempMoves);
+							 
+							 
+						 }
+				 		Moves.setLength(0);
+				 		Moves.append("Comment error");*/
+				 		System.out.println("Test");
+				 		String fixedMoves = stringCorrecter.commentCorrect(Moves.toString());
+				 		Moves.setLength(0);
+				 		Moves.append(fixedMoves);
+				 		System.out.println(Moves);
+			 		}
+				 	
+				 	//cut if it's too long because of the damn comments
+				 	if(Moves.length()>2000){
+				 		Moves.setLength(0);
+				 		Moves.append("MOVES TOO LONG");
+				 		MovesNullCount++;
+				 	}
+				 	
+				 	if(WhiteElo == null) {
+				 		WhiteEloInt = -1;
+				 		WhiteNullCount++;
+				 	}
+				 	if(BlackElo == null) {
+				 		BlackEloInt = -1;
+				 		BlackNullCount++;
+				 	}
+				 		
+				 //	System.out.println(gameCount + ",'" + Event + "','" + Date + "','" + White + "','" + Black + "','" + Result + "'," + WhiteEloInt + ",'" + BlackEloInt + "','" + Moves);
+				 	
+				 sqlStatement = "INSERT INTO Games " + "VALUES (" + gameCount + ",'" + Event + "','" + Date + "','" + White + "','" + Black + "','" + Result + "'," + WhiteEloInt + ",'" + BlackEloInt + "','" + Moves + "')";
+				 statement.executeUpdate(sqlStatement);
+				 
+				 WhiteEloInt = -1;
+				 BlackEloInt = -1;
+				 
+			//	System.out.print("\n" + gameCount + "\n" + Event + "\n" + Date + "\n" + White + "\n" + Black + "\n" + Result + "\n" + PlyCount + "\n" + EventCountry + "\n" + Moves);
+				System.out.println(gameCount + ". row inserted!");
+				gameCount++;
+				emptyLineCount = 0;
+				Moves.setLength(0);
+				
+			 }
+		 }
+		 conn.close();
+		 br.close();
+		 System.out.println("JOB DONE!");
+		 System.out.println("ELO of " + WhiteNullCount + " Whites was replaced with -1");
+		 System.out.println("Elo of " + BlackNullCount + " Blacks was replaced with -1");
+		 System.out.println(MovesNullCount + " moves were replaced with MOVES TO LONG (>2000 signs)");
+
+	}
+
+}
