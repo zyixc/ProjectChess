@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/projectChess" />
+            <option value="C:\Users\Administrator\Documents\GitHub\ProjectChess\ProjectChessApp" />
+            <option value="C:\Users\Administrator\Documents\GitHub\ProjectChess\ProjectChessApp\projectChess" />
           </set>
         </option>
       </GradleProjectSettings>
