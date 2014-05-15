@@ -1,4 +1,4 @@
-package com.projectchessap.projectchess.data;
+package com.projectchessapp.projectchess.data;
 
 /**
  * Created by Inholland on 15-5-2014.
