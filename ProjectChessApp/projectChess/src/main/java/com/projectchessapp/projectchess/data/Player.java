@@ -8,13 +8,14 @@ public class Player {
     String name = null;
     String fide_id = null;
     String fide_rating = null;
+    String preferred_eco = null;
 
-    public Player(String player_id, String name, String fide_id, String fide_rating) {
-
+    public Player(String player_id, String name, String fide_id, String fide_rating, String preferred_eco) {
         this.player_id = player_id;
         this.name = name;
         this.fide_id = fide_id;
         this.fide_rating = fide_rating;
+        this.preferred_eco = preferred_eco;
     }
 
     public Player() {
@@ -50,5 +51,13 @@ public class Player {
 
     public void setFide_rating(String fide_rating) {
         this.fide_rating = fide_rating;
+    }
+
+    public String getPreferred_eco() {
+        return preferred_eco;
+    }
+
+    public void setPreferred_eco(String preferred_eco) {
+        this.preferred_eco = preferred_eco;
     }
 }
