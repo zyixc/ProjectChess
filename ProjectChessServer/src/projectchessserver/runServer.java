@@ -1,8 +1,9 @@
 package projectchessserver;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import projectchessserver.data.Games;
+import projectchessserver.data.Player;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -45,21 +46,26 @@ class doComms implements Runnable {
     }
 
     public void run() {
+        Player player;
         try {
             // Get input from the client
-            DataInputStream in = new DataInputStream(server.getInputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(server.getInputStream()));
             PrintStream out = new PrintStream(server.getOutputStream());
+            out.print("Search term: ");
             try{
                 DatabaseHandler db = new DatabaseHandler();
                 while ((line = in.readLine()) != null && !line.equals(".")) {
-                    out.println("I got:" + line);
-                    out.print(db.getGames(line));
+                    out.println("I got: " + line);
+                    player = db.getPlayer(line);
+                    try {
+                        System.out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
+                    }catch(Exception e){
+                        System.err.println("Missing info");
+                    }
                 }
             }catch(Exception e){
-                e.printStackTrace();
+                System.err.println("No games found");
             }
-
-
 
             // Now write to the client
 
