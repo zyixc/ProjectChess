@@ -61,10 +61,6 @@ public class insertMoves {
                                 line = br.readLine();
                             }
                         }catch(Exception e){
-                            try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("failedrecords2.txt", true)))) {
-                                out.println(gameCount + moveCount);
-                            }catch (IOException e2) {
-                            }
                         }
 
                         if (gameCount % 10000 == 0) {

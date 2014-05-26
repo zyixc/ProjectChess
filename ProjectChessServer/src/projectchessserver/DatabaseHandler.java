@@ -21,7 +21,7 @@ public class DatabaseHandler {
         Player player = null;
         try{
             PreparedStatement stmt_player_name = conn.prepareStatement("SELECT name FROM players WHERE name LIKE ? LIMIT 1");
-            stmt_player_name.setString(1,"'"+player_name+"%'");
+            stmt_player_name.setString(1,player_name+"%");
             ResultSet stmt_player_name_rs = stmt_player_name.executeQuery();
             if(stmt_player_name_rs.next()) {
                 player = new Player(stmt_player_name_rs.getString(1));
@@ -30,8 +30,8 @@ public class DatabaseHandler {
             }
             System.out.println(player.getName());
 
-            PreparedStatement stmt_player_white = conn.prepareStatement("SELECT * FROM games WHERE white LIKE '?'");
-            stmt_player_white.setString(1,player.getName());
+            PreparedStatement stmt_player_white = conn.prepareStatement("SELECT * FROM games WHERE white LIKE ?");
+            stmt_player_white.setString(1,player_name+"%");
             ResultSet stmt_player_white_rs = stmt_player_white.executeQuery();
             while(stmt_player_white_rs.next()){
                 player.addWhite_games(new Games(stmt_player_white_rs.getString(2),
@@ -47,9 +47,9 @@ public class DatabaseHandler {
                         stmt_player_white_rs.getString(12)));
             }
 
-            PreparedStatement stmt_player_black = conn.prepareStatement("SELECT * FROM games WHERE black LIKE '?'");
-            stmt_player_black.setString(1,player.getName());
-            ResultSet stmt_player_black_rs = stmt_player_white.executeQuery();
+            PreparedStatement stmt_player_black = conn.prepareStatement("SELECT * FROM games WHERE black LIKE ?");
+            stmt_player_black.setString(1,player_name+"%");
+            ResultSet stmt_player_black_rs = stmt_player_black.executeQuery();
             while(stmt_player_black_rs.next()){
                 player.addBlack_games(new Games(stmt_player_black_rs.getString(2),
                         stmt_player_black_rs.getString(3),

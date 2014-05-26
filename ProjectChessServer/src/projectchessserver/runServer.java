@@ -46,25 +46,28 @@ class doComms implements Runnable {
     }
 
     public void run() {
-        Player player;
+        Player player = null;
         try {
             // Get input from the client
             BufferedReader in = new BufferedReader(new InputStreamReader(server.getInputStream()));
             PrintStream out = new PrintStream(server.getOutputStream());
+            System.out.println("Connected from " + server .getInetAddress() + " on port "
+                    + server .getPort() + " to port " + server .getLocalPort() + " of "
+                    + server .getLocalAddress());
             out.print("Search term: ");
             try{
                 DatabaseHandler db = new DatabaseHandler();
                 while ((line = in.readLine()) != null && !line.equals(".")) {
+                    System.out.println("I got: "+ line);
                     out.println("I got: " + line);
+
                     player = db.getPlayer(line);
-                    try {
-                        System.out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
-                    }catch(Exception e){
-                        System.err.println("Missing info");
-                    }
+                    System.out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
+                    out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
                 }
             }catch(Exception e){
                 System.err.println("No games found");
+                e.printStackTrace();
             }
 
             // Now write to the client
