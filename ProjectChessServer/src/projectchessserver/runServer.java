@@ -1,11 +1,17 @@
 package projectchessserver;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import projectchessserver.data.Games;
 import projectchessserver.data.Player;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by zyixc on 20-5-2014.
@@ -34,51 +40,64 @@ public class runServer {
             ioe.printStackTrace();
         }
     }
-
 }
 
 class doComms implements Runnable {
     private Socket server;
-    private String line, input;
+    private String line;
+    private Pattern my_pattern = Pattern.compile("request\\.player\\?.+");
+    private Matcher my_matcher;
 
     doComms(Socket server) {
         this.server = server;
     }
 
     public void run() {
-        Player player = null;
         try {
-            // Get input from the client
-            BufferedReader in = new BufferedReader(new InputStreamReader(server.getInputStream()));
-            PrintStream out = new PrintStream(server.getOutputStream());
+            DataInputStream is = new DataInputStream(server.getInputStream());
+            DataOutputStream os = new DataOutputStream(server.getOutputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
+            PrintWriter pw = new PrintWriter(os);
             System.out.println("Connected from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
                     + server .getLocalAddress());
-            out.print("Search term: ");
+
             try{
                 DatabaseHandler db = new DatabaseHandler();
-                while ((line = in.readLine()) != null && !line.equals(".")) {
-                    System.out.println("I got: "+ line);
-                    out.println("I got: " + line);
+                ObjectMapper mapper = new ObjectMapper();
 
-                    player = db.getPlayer(line);
-                    System.out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
-                    out.println(player.getName()+" White: "+player.getWhite_games().size()+"| Black: "+player.getBlack_games().size());
+                while ((line = in.readLine()) != null) {
+                    my_matcher = my_pattern.matcher(line);
+                    String request = null;
+
+                    if(my_matcher.find()){
+                        //get requested name
+                        request = my_matcher.group();
+                        System.out.println("Request: "+request);
+                        request = request.split("\\?")[1];
+                        System.out.println("Found: "+request);
+
+                        //get json file
+                        byte[] encoded = Files.readAllBytes(Paths.get("JSON_files\\" + db.getPlayer(request)));
+                        String filestring = new String(encoded, Charset.defaultCharset());
+                        pw.println(filestring);
+                        pw.flush();
+                    }else{
+                        System.out.println("Nothing found");
+                    }
                 }
             }catch(Exception e){
-                System.err.println("No games found");
-                e.printStackTrace();
+
             }
-
-            // Now write to the client
-
-            System.out.println("Overall message is:" + input);
-            out.println("Overall message is:" + input);
-
+            System.out.println("Connected closed from " + server .getInetAddress() + " on port "
+                    + server .getPort() + " to port " + server .getLocalPort() + " of "
+                    + server .getLocalAddress());
             server.close();
-        } catch (IOException ioe) {
-            System.out.println("IOException on socket listen: " + ioe);
-            ioe.printStackTrace();
+            is.close();
+            os.close();
+        } catch (IOException e) {
+            System.out.println("IOException on socket listen: " + e);
+            e.printStackTrace();
         }
     }
 }

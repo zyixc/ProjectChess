@@ -1,5 +1,8 @@
 package projectchessserver.data;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,8 @@ public class Player implements Serializable {
     private String name;
     private List<Games> white_games = new ArrayList<Games>();
     private List<Games> black_games = new ArrayList<Games>();
+
+    public Player(){}
 
     public Player(String name){
         this.name = name;
@@ -34,5 +39,17 @@ public class Player implements Serializable {
 
     public void addBlack_games(Games e){
         black_games.add(e);
+    }
+
+    public String toJSON(){
+        ObjectMapper mapper = new ObjectMapper();
+        //String name = this.name.split(",")[1];
+        String filename = this.name+".json";
+        try{
+            mapper.writeValue(new File(System.getProperty("user.dir")+"\\JSON_files\\"+filename),this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return filename;
     }
 }

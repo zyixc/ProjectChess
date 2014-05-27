@@ -3,6 +3,7 @@ package projectchessserver;
 import projectchessserver.data.Games;
 import projectchessserver.data.Player;
 
+import java.io.File;
 import java.sql.*;
 
 /**
@@ -17,7 +18,7 @@ public class DatabaseHandler {
         conn = DriverManager.getConnection(url, "root", "");
     }
 
-    public Player getPlayer(String player_name){
+    public String getPlayer(String player_name){
         Player player = null;
         try{
             PreparedStatement stmt_player_name = conn.prepareStatement("SELECT name FROM players WHERE name LIKE ? LIMIT 1");
@@ -25,8 +26,11 @@ public class DatabaseHandler {
             ResultSet stmt_player_name_rs = stmt_player_name.executeQuery();
             if(stmt_player_name_rs.next()) {
                 player = new Player(stmt_player_name_rs.getString(1));
+                if(new File(System.getProperty("user.dir")+"\\JSON_files\\"+player.getName()+".json").isFile()){
+                    return player.getName()+".json";
+                }
             }else{
-                return player;
+                return null;
             }
             System.out.println(player.getName());
 
@@ -66,6 +70,7 @@ public class DatabaseHandler {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return player;
+        player.toJSON();
+        return player.getName()+".json";
     }
 }

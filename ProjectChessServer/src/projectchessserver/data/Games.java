@@ -19,8 +19,12 @@ public class Games implements Serializable {
     private int white_elo;
     private int black_elo;
     private String eco;
-    private Map<Integer,String> moves_white = new HashMap<Integer,String>();
-    private Map<Integer,String> moves_black = new HashMap<Integer,String>();
+    private String moves;
+
+    //private Map<Integer,String> moves_white = new HashMap<Integer,String>();
+    //private Map<Integer,String> moves_black = new HashMap<Integer,String>();
+
+    public Games(){}
 
     public Games(String event, String site, String date, int round, String white, String black,
                  String result, int white_elo, int black_elo, String eco, String moves) {
@@ -34,77 +38,126 @@ public class Games implements Serializable {
         this.white_elo = white_elo;
         this.black_elo = black_elo;
         this.eco = eco;
-        setMoves(moves);
+        this.moves = moves;
+        //setMoves(moves);
     }
 
     public String getEvent() {
         return event;
     }
 
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
     public String getSite() {
         return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public String getDate() {
         return date;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public int getRound() {
         return round;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
     }
 
     public String getWhite() {
         return white;
     }
 
+    public void setWhite(String white) {
+        this.white = white;
+    }
+
     public String getBlack() {
         return black;
+    }
+
+    public void setBlack(String black) {
+        this.black = black;
     }
 
     public String getResult() {
         return result;
     }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public int getWhite_elo() {
         return white_elo;
+    }
+
+    public void setWhite_elo(int white_elo) {
+        this.white_elo = white_elo;
     }
 
     public int getBlack_elo() {
         return black_elo;
     }
 
+    public void setBlack_elo(int black_elo) {
+        this.black_elo = black_elo;
+    }
+
     public String getEco() {
         return eco;
     }
 
-    public Map<Integer,String> getMoves() throws ConcurrentModificationException{
-        Map<Integer,String> result = new HashMap<Integer, String>();
-        for(int i = 0; i < moves_white.size(); i+=2){
-            result.put(i,moves_white.get(i));
-            result.put(i+1,moves_black.get(i));
-        }
-        return result;
+    public void setEco(String eco) {
+        this.eco = eco;
     }
 
-    public Map<Integer, String> getMoves_white() {
-        return moves_white;
+    public String getMoves() {
+        return moves;
     }
 
-    public Map<Integer, String> getMoves_black() {
-        return moves_black;
+    public void setMoves(String moves) {
+        this.moves = moves;
     }
 
-    public void setMoves(String input){
-        try {
-            String[] input_split_result = input.split("\\s");
-            int movecount = 1;
-            for (int i = 0; i < input_split_result.length; i += 3) {
-                moves_white.put(movecount, input_split_result[i + 1]);
-                moves_black.put(movecount, input_split_result[i + 2]);
-                movecount++;
-            }
-        }catch(Exception e){
-
-        }
-    }
+//    public Map<Integer,String> getMoves() throws ConcurrentModificationException{
+//        Map<Integer,String> result = new HashMap<Integer, String>();
+//        for(int i = 0; i < moves_white.size(); i+=2){
+//            result.put(i,moves_white.get(i));
+//            result.put(i+1,moves_black.get(i));
+//        }
+//        return result;
+//    }
+//
+//    public Map<Integer, String> getMoves_white() {
+//        return moves_white;
+//    }
+//
+//    public Map<Integer, String> getMoves_black() {
+//        return moves_black;
+//    }
+//
+//    public void setMoves(String input){
+//        try {
+//            String[] input_split_result = input.split("\\s");
+//            int movecount = 1;
+//            for (int i = 0; i < input_split_result.length; i += 3) {
+//                moves_white.put(movecount, input_split_result[i + 1]);
+//                moves_black.put(movecount, input_split_result[i + 2]);
+//                movecount++;
+//            }
+//        }catch(Exception e){
+//
+//        }
+//    }
 }
