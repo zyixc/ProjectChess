@@ -13,25 +13,6 @@ public class runClientTest {
     private static String hostname = "localhost";
     private static int port = 4444;
 
-//    public static void main(String[] args){
-//        try{
-//            Socket toserver = new Socket(hostname,port);
-//            BufferedReader in = new BufferedReader(new InputStreamReader(toserver.getInputStream()));
-//            PrintStream out = new PrintStream(toserver.getOutputStream());
-//            out.println("request.player?Aagaard");
-//            String line = null;
-//            while ((line = in.readLine()) != null) {
-//                ObjectMapper mapper = new ObjectMapper();
-//                Player player = mapper.readValue(line,Player.class);
-//                System.out.println(player.toString());
-//                System.out.println(player.getName());
-//            }
-//            toserver.close();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-
     public static void main(String[] args){
         try{
             Socket socket = new Socket(hostname,port);
@@ -42,14 +23,13 @@ public class runClientTest {
             pw.println("request.player?Aagaard");
             pw.flush();
             String line = null;
-            if((line = in.readLine()) != null) {
+            while((line = in.readLine()) != null) {
                 ObjectMapper mapper = new ObjectMapper();
                 Player player = mapper.readValue(line,Player.class);
                 System.out.println(player.toString());
                 System.out.println(player.getName());
-                socket.close();
             }
-
+            socket.close();
         }catch(Exception e){
             e.printStackTrace();
         }

@@ -11,14 +11,17 @@ import java.util.List;
  * Created by zyixc on 20-5-2014.
  */
 public class Player implements Serializable {
-    private String name;
+    private String firstname;
+    private String lastname;
+    private String eco;
+    private String prefferedfirstopeningmove;
     private List<Games> white_games = new ArrayList<Games>();
     private List<Games> black_games = new ArrayList<Games>();
 
     public Player(){}
 
     public Player(String name){
-        this.name = name;
+        this.lastname = name;
     }
 
     public List<Games> getWhite_games() {
@@ -26,7 +29,7 @@ public class Player implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return lastname;
     }
 
     public List<Games> getBlack_games() {
@@ -44,7 +47,7 @@ public class Player implements Serializable {
     public String toJSON(){
         ObjectMapper mapper = new ObjectMapper();
         //String name = this.name.split(",")[1];
-        String filename = this.name+".json";
+        String filename = this.lastname+".json";
         try{
             mapper.writeValue(new File(System.getProperty("user.dir")+"\\JSON_files\\"+filename),this);
         }catch(Exception e){

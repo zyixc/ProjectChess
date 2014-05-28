@@ -45,8 +45,6 @@ public class runServer {
 class doComms implements Runnable {
     private Socket server;
     private String line;
-    private Pattern my_pattern = Pattern.compile("request\\.player\\?.+");
-    private Matcher my_matcher;
 
     doComms(Socket server) {
         this.server = server;
@@ -66,28 +64,24 @@ class doComms implements Runnable {
                 DatabaseHandler db = new DatabaseHandler();
                 ObjectMapper mapper = new ObjectMapper();
 
-                while ((line = in.readLine()) != null) {
-                    my_matcher = my_pattern.matcher(line);
-                    String request = null;
-
-                    if(my_matcher.find()){
-                        //get requested name
-                        request = my_matcher.group();
-                        System.out.println("Request: "+request);
-                        request = request.split("\\?")[1];
-                        System.out.println("Found: "+request);
-
+                while ((line = in.readLine()) != null) {;
+                    String request[] = line.split("[\\.\\?=\\&]+");
+                    if(request[0].equals("request")&&request[1].equals("player")){
                         //get json file
-                        byte[] encoded = Files.readAllBytes(Paths.get("JSON_files\\" + db.getPlayer(request)));
+                        byte[] encoded = Files.readAllBytes(Paths.get("JSON_files" + File.separator + db.getPlayer(request[2])));
+                        System.out.println(Paths.get("JSON_files" + File.separator + "filehere"));
                         String filestring = new String(encoded, Charset.defaultCharset());
                         pw.println(filestring);
                         pw.flush();
-                    }else{
+                    }else if(request[0].equals("request")&&request[1].equals("games")){
+
+                    }
+                    else{
                         System.out.println("Nothing found");
                     }
                 }
             }catch(Exception e){
-
+                e.printStackTrace();
             }
             System.out.println("Connected closed from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
