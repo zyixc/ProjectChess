@@ -108,7 +108,7 @@ public class DatabaseHandler {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query.toString());
             while (rs.next()) {
-                
+
             }
         }catch(Exception e){
             e.printStackTrace();
