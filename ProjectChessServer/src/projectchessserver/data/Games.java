@@ -174,10 +174,6 @@ public class Games{
         return filename;
     }
 
-    public String getJSONstring(){
-        return this.toString()+".json";
-    }
-
 //    public Map<Integer,String> getMoves() throws ConcurrentModificationException{
 //        Map<Integer,String> result = new HashMap<Integer, String>();
 //        for(int i = 0; i < moves_white.size(); i+=2){

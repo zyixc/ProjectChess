@@ -40,10 +40,10 @@ public class DatabaseHandler {
             }else{
                 return null;
             }
-            System.out.println("##Step1 found player: "+player.getName());
+            System.out.println("##Step1 found player: "+player.getFirstname()+" "+player.getLastname());
             //## Step2 get white games
             PreparedStatement spw = conn.prepareStatement("SELECT * FROM games WHERE white = ?");
-            spw.setString(1,player.getID());
+            spw.setString(1,player.getId());
             ResultSet spw_rs = spw.executeQuery();
             //TODO remove counter
             int counter1 = 0;
@@ -70,7 +70,7 @@ public class DatabaseHandler {
 
             //## Step3 get black games
             PreparedStatement spb = conn.prepareStatement("SELECT * FROM games WHERE black = ?");
-            spb.setString(1, player.getID());
+            spb.setString(1, player.getId());
             ResultSet spb_rs = spb.executeQuery();
             //TODO remove counter
             int counter2 = 0;
@@ -96,7 +96,7 @@ public class DatabaseHandler {
             System.out.println("#Step3 black games: "+counter2);
             //##Step4 player to json file
             player.toJSON();
-            System.out.println("#Step4 jsonfilename: "+player.getJSONstring());
+            System.out.println("#Step4 jsonfilename: "+player.getLastname()+".json");
         }catch(Exception e){
             e.printStackTrace();
         }

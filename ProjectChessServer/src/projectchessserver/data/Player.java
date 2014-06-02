@@ -11,7 +11,7 @@ import java.util.List;
  * Created by zyixc on 20-5-2014.
  */
 public class Player{
-    private String ID;
+    private String id;
     private String firstname;
     private String lastname;
     private List<Games> white_games = new ArrayList<Games>();
@@ -19,18 +19,14 @@ public class Player{
 
     public Player(){}
 
-    public Player(String ID, String firstname, String lastname){
-        this.ID = ID;
+    public Player(String id, String firstname, String lastname){
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
     }
 
-    public List<Games> getWhite_games() {
-        return white_games;
-    }
-
-    public String getName() {
-        return firstname+" "+lastname;
+    public String getId() {
+        return id;
     }
 
     public String getFirstname() {
@@ -41,8 +37,8 @@ public class Player{
         return lastname;
     }
 
-    public String getID() {
-        return ID;
+    public List<Games> getWhite_games() {
+        return white_games;
     }
 
     public List<Games> getBlack_games() {
@@ -59,7 +55,6 @@ public class Player{
 
     public String toJSON(){
         ObjectMapper mapper = new ObjectMapper();
-        //String name = this.name.split(",")[1];
         String filename = this.lastname+".json";
         try{
             mapper.writeValue(new File(System.getProperty("user.dir")+File.separator+"JSON_files"+File.separator+filename),this);
@@ -67,9 +62,5 @@ public class Player{
             e.printStackTrace();
         }
         return filename;
-    }
-
-    public String getJSONstring(){
-        return this.lastname+".json";
     }
 }

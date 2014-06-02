@@ -30,7 +30,7 @@ public class runClientTest {
                 ObjectMapper mapper = new ObjectMapper();
                 Player player = mapper.readValue(line,Player.class);
                 System.out.println(player.toString());
-                System.out.println(player.getName());
+                System.out.println(player.getFirstname()+" "+player.getLastname());
             }
             socket.close();
         }catch(Exception e){
