@@ -1,17 +1,11 @@
 package projectchessserver;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import projectchessserver.data.Games;
-import projectchessserver.data.Player;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by zyixc on 20-5-2014.
@@ -40,6 +34,7 @@ public class runServer {
             ioe.printStackTrace();
         }
     }
+
 }
 
 class doComms implements Runnable {
@@ -51,10 +46,10 @@ class doComms implements Runnable {
     }
 
     public void run() {
-        try {
-            DataInputStream is = new DataInputStream(server.getInputStream());
+        try(DataInputStream is = new DataInputStream(server.getInputStream());
             DataOutputStream os = new DataOutputStream(server.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
+        ){
             System.out.println("Connected from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
                     + server .getLocalAddress());
@@ -79,7 +74,6 @@ class doComms implements Runnable {
                             System.out.println("no.result");
                             os.writeBytes("no.result");
                             os.flush();
-
                         }
                     }else if(request[0].equals("request")&&request[1].equals("games")){
 
@@ -94,7 +88,6 @@ class doComms implements Runnable {
             System.out.println("Connection closed from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
                     + server .getLocalAddress());
-            server.close();
         } catch (IOException e) {
             System.out.println("IOException on socket listen: " + e);
             e.printStackTrace();

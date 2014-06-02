@@ -1,63 +1,65 @@
 package com.projectchessapp.projectchess.data;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by Inholland on 15-5-2014.
+ * Created by zyixc on 20-5-2014.
  */
-public class Player {
-    String player_id = null;
-    String name = null;
-    String fide_id = null;
-    String fide_rating = null;
-    String preferred_eco = null;
+public class Player{
+    private String id;
+    private String firstname;
+    private String lastname;
+    private List<Games> white_games = new ArrayList<Games>();
+    private List<Games> black_games = new ArrayList<Games>();
 
-    public Player(String player_id, String name, String fide_id, String fide_rating, String preferred_eco) {
-        this.player_id = player_id;
-        this.name = name;
-        this.fide_id = fide_id;
-        this.fide_rating = fide_rating;
-        this.preferred_eco = preferred_eco;
+    public Player(){}
+
+    public Player(String id, String firstname, String lastname){
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
-    public Player() {
+    public String getId() {
+        return id;
     }
 
-    public String getPlayer_id() {
-        return player_id;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setPlayer_id(String player_id) {
-        this.player_id = player_id;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getName() {
-        return name;
+    public List<Games> getWhite_games() {
+        return white_games;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<Games> getBlack_games() {
+        return black_games;
     }
 
-    public String getFide_id() {
-        return fide_id;
+    public void addWhite_games(Games e){
+        white_games.add(e);
     }
 
-    public void setFide_id(String fide_id) {
-        this.fide_id = fide_id;
+    public void addBlack_games(Games e){
+        black_games.add(e);
     }
 
-    public String getFide_rating() {
-        return fide_rating;
-    }
-
-    public void setFide_rating(String fide_rating) {
-        this.fide_rating = fide_rating;
-    }
-
-    public String getPreferred_eco() {
-        return preferred_eco;
-    }
-
-    public void setPreferred_eco(String preferred_eco) {
-        this.preferred_eco = preferred_eco;
+    public String toJSON(){
+        ObjectMapper mapper = new ObjectMapper();
+        String filename = this.lastname+".json";
+        try{
+            mapper.writeValue(new File(System.getProperty("user.dir")+File.separator+"JSON_files"+File.separator+filename),this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return filename;
     }
 }

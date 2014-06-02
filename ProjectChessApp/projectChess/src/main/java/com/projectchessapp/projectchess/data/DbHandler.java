@@ -13,33 +13,35 @@ public class DbHandler extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "ChessMaster";
     private static final String TABLE_GAMES = "games";
     private static final String TABLE_PLAYERS = "players";
-    private static final String TABLE_MOVES = "moves";
 
     //TABLE_GAMES
-    private static final String GAMES_GAME_ID = "game_id";
+    private static final String GAMES_GAME_ID = "d";
     private static final String GAMES_EVENT = "event";
     private static final String GAMES_SITE = "site";
     private static final String GAMES_DATE = "date";
     private static final String GAMES_ROUND = "round";
-    private static final String GAMES_RESULT = "result";
     private static final String GAMES_WHITE = "white";
     private static final String GAMES_BLACK = "black";
+    private static final String GAMES_RESULT = "result";
     private static final String GAMES_WHITE_ELO = "white_elo";
     private static final String GAMES_BLACK_ELO = "black_elo";
     private static final String GAMES_ECO = "eco";
+    private static final String GAMES_MOVES = "moves";
+    private static final String GAMES_W1 = "w1";
+    private static final String GAMES_W2 = "w2";
+    private static final String GAMES_W3 = "w3";
+    private static final String GAMES_W4 = "w4";
+    private static final String GAMES_W5 = "w5";
+    private static final String GAMES_B1 = "b1";
+    private static final String GAMES_B2 = "b2";
+    private static final String GAMES_B3 = "b3";
+    private static final String GAMES_B4 = "b4";
+    private static final String GAMES_B5 = "b5";
 
     //TABLE_PLAYERS
-    private static final String PLAYERS_PLAYER_ID = "player_id";
-    private static final String PLAYERS_NAME = "name";
-    private static final String PLAYERS_FIDE_ID = "fide_id";
-    private static final String PLAYERS_FIDE_RATING = "fide_rating";
-
-    //TABLE_MOVES
-    private static final String MOVES_ID = "moves_id";
-    private static final String MOVES_NUMBER = "moves_number";
-    private static final String MOVES_GAME_ID = "game_id";
-    private static final String MOVES_PLAYER_ID = "player_name";
-    private static final String MOVES_POSITION = "position";
+    private static final String PLAYERS_PLAYER_ID = "id";
+    private static final String PLAYERS_FIRSTNAME = "firstName";
+    private static final String PLAYERS_LASTNAME = "lastName";
 
     public DbHandler(Context context, String name, CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -49,7 +51,6 @@ public class DbHandler extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAYERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MOVES);
         onCreate(db);
     }
 
@@ -58,9 +59,8 @@ public class DbHandler extends SQLiteOpenHelper{
         String CREATE_TABLE_PLAYERS = "CREATE TABLE " +
                 TABLE_PLAYERS + "("
                 + PLAYERS_PLAYER_ID + " INTEGER PRIMARY KEY,"
-                + PLAYERS_NAME + " TEXT,"
-                + PLAYERS_FIDE_ID + " TEXT,"
-                + PLAYERS_FIDE_RATING + " TEXT,"
+                + PLAYERS_FIRSTNAME + " TEXT,"
+                + PLAYERS_LASTNAME + " TEXT,"
                 + ")";
         db.execSQL(CREATE_TABLE_PLAYERS);
 
@@ -77,20 +77,21 @@ public class DbHandler extends SQLiteOpenHelper{
                 + GAMES_WHITE_ELO + " TEXT,"
                 + GAMES_BLACK_ELO + " TEXT,"
                 + GAMES_ECO + " TEXT,"
+                + GAMES_MOVES + " TEXT,"
+                + GAMES_W1 + " TEXT,"
+                + GAMES_W2 + " TEXT,"
+                + GAMES_W3 + " TEXT,"
+                + GAMES_W4 + " TEXT,"
+                + GAMES_W5 + " TEXT,"
+                + GAMES_B1 + " TEXT,"
+                + GAMES_B2 + " TEXT,"
+                + GAMES_B3 + " TEXT,"
+                + GAMES_B4 + " TEXT,"
+                + GAMES_B5 + " TEXT,"
                 + "FOREIGN KEY(" + GAMES_WHITE + ") REFERENCES " + TABLE_PLAYERS + "(" + PLAYERS_PLAYER_ID + ")"
+                + "FOREIGN KEY(" + GAMES_BLACK + ") REFERENCES " + TABLE_PLAYERS + "(" + PLAYERS_PLAYER_ID + ")"
                 + ")";
         db.execSQL(CREATE_TABLE_GAMES);
-
-        String CREATE_TABLE_MOVES = "CREATE TABLE " +
-                TABLE_MOVES + "("
-                + MOVES_ID + " INTEGER PRIMARY KEY,"
-                + MOVES_NUMBER + " TEXT,"
-                + MOVES_GAME_ID + " TEXT,"
-                + MOVES_PLAYER_ID + " TEXT,"
-                + MOVES_POSITION + " TEXT, "
-                + "FOREIGN KEY(" + MOVES_GAME_ID + ") REFERENCES " + TABLE_GAMES + "(" + GAMES_GAME_ID + ")"
-                + "FOREIGN KEY(" + MOVES_PLAYER_ID + ") REFERENCES " + TABLE_PLAYERS + "(" + PLAYERS_PLAYER_ID + ")"
-                + ")";
-        db.execSQL(CREATE_TABLE_MOVES);
     }
+
 }

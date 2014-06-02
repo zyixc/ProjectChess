@@ -10,15 +10,14 @@ import java.net.Socket;
  * Created by zyixc on 27-5-2014.
  */
 public class runClientTest {
-    private static String hostname = "localhost";
-    private static int port = 4444;
+    private final static String hostname = "localhost";
+    private final static int port = 4444;
 
     public static void main(String[] args){
-        try{
-            Socket socket = new Socket(hostname,port);
+        try(Socket socket = new Socket(hostname,port);
             DataInputStream is = new DataInputStream(socket.getInputStream());
             DataOutputStream os = new DataOutputStream(socket.getOutputStream());
-            BufferedReader in = new BufferedReader(new InputStreamReader(is));
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));){
             os.writeBytes("request.player?Aagaard"+"\n"); os.flush();
             System.out.println("request send");
             String line;
@@ -32,7 +31,6 @@ public class runClientTest {
                 System.out.println(player.toString());
                 System.out.println(player.getFirstname()+" "+player.getLastname());
             }
-            socket.close();
         }catch(Exception e){
             e.printStackTrace();
         }

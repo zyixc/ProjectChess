@@ -14,7 +14,7 @@ public class DatabaseHandler {
     Connection conn;
 
     public DatabaseHandler() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost/chess";
         conn = DriverManager.getConnection(url, "root", "");
     }
