@@ -19,15 +19,14 @@ public class runClientTest {
             DataInputStream is = new DataInputStream(socket.getInputStream());
             DataOutputStream os = new DataOutputStream(socket.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            PrintWriter pw = new PrintWriter(os);
-            pw.println("request.player?Aagaard");
-            pw.flush();
+            os.writeBytes("request.player?Aagaard"+"\n"); os.flush();
             String line = null;
-            while((line = in.readLine()) != null) {
-                ObjectMapper mapper = new ObjectMapper();
-                Player player = mapper.readValue(line,Player.class);
-                System.out.println(player.toString());
-                System.out.println(player.getName());
+            if((line = in.readLine()) != null) {
+//                ObjectMapper mapper = new ObjectMapper();
+//                Player player = mapper.readValue(line,Player.class);
+//                System.out.println(player.toString());
+//                System.out.println(player.getName());
+                System.out.println(line);
             }
             socket.close();
         }catch(Exception e){

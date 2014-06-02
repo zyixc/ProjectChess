@@ -55,24 +55,22 @@ class doComms implements Runnable {
             DataInputStream is = new DataInputStream(server.getInputStream());
             DataOutputStream os = new DataOutputStream(server.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            PrintWriter pw = new PrintWriter(os);
             System.out.println("Connected from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
                     + server .getLocalAddress());
 
             try{
                 DatabaseHandler db = new DatabaseHandler();
-                ObjectMapper mapper = new ObjectMapper();
 
-                while ((line = in.readLine()) != null) {;
+                while ((line = in.readLine()) != null) {
                     String request[] = line.split("[\\.\\?=\\&]+");
                     if(request[0].equals("request")&&request[1].equals("player")){
                         //get json file
                         byte[] encoded = Files.readAllBytes(Paths.get("JSON_files" + File.separator + db.getPlayer(request[2])));
                         System.out.println(Paths.get("JSON_files" + File.separator + "filehere"));
                         String filestring = new String(encoded, Charset.defaultCharset());
-                        pw.println(filestring);
-                        pw.flush();
+                        os.writeBytes(filestring);
+                        os.flush();
                     }else if(request[0].equals("request")&&request[1].equals("games")){
 
                     }
@@ -80,15 +78,17 @@ class doComms implements Runnable {
                         System.out.println("Nothing found");
                     }
                 }
+//                while ((line = in.readLine()) !=null) {
+//                    System.out.println(line);
+//                    os.writeBytes("Request received: "+line+"\n");
+//                }
             }catch(Exception e){
                 e.printStackTrace();
             }
-            System.out.println("Connected closed from " + server .getInetAddress() + " on port "
+            System.out.println("Connection closed from " + server .getInetAddress() + " on port "
                     + server .getPort() + " to port " + server .getLocalPort() + " of "
                     + server .getLocalAddress());
             server.close();
-            is.close();
-            os.close();
         } catch (IOException e) {
             System.out.println("IOException on socket listen: " + e);
             e.printStackTrace();
