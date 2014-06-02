@@ -62,15 +62,25 @@ class doComms implements Runnable {
             try{
                 DatabaseHandler db = new DatabaseHandler();
 
-                while ((line = in.readLine()) != null) {
+                if((line = in.readLine()) != null) {
                     String request[] = line.split("[\\.\\?=\\&]+");
                     if(request[0].equals("request")&&request[1].equals("player")){
                         //get json file
-                        byte[] encoded = Files.readAllBytes(Paths.get("JSON_files" + File.separator + db.getPlayer(request[2])));
-                        System.out.println(Paths.get("JSON_files" + File.separator + "filehere"));
-                        String filestring = new String(encoded, Charset.defaultCharset());
-                        os.writeBytes(filestring);
-                        os.flush();
+                        String filename = db.getPlayer(request[2]);
+                        if(filename!=null) {
+                            byte[] encoded = Files.readAllBytes(Paths.get("JSON_files" + File.separator + filename));
+                            System.out.println("Query succesfull: "+Paths.get("JSON_files" + File.separator + filename));
+                            String filestring = new String(encoded, Charset.defaultCharset());
+                            os.writeBytes(filestring);
+                            os.flush();
+                            System.out.println("Answer send; Ending connection;");
+                        }
+                        else{
+                            System.out.println("no.result");
+                            os.writeBytes("no.result");
+                            os.flush();
+
+                        }
                     }else if(request[0].equals("request")&&request[1].equals("games")){
 
                     }
@@ -78,10 +88,6 @@ class doComms implements Runnable {
                         System.out.println("Nothing found");
                     }
                 }
-//                while ((line = in.readLine()) !=null) {
-//                    System.out.println(line);
-//                    os.writeBytes("Request received: "+line+"\n");
-//                }
             }catch(Exception e){
                 e.printStackTrace();
             }

@@ -1,5 +1,8 @@
 package projectchessserver.data;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
@@ -8,7 +11,8 @@ import java.util.Map;
 /**
  * Created by zyixc on 20-5-2014.
  */
-public class Games implements Serializable {
+public class Games{
+    private String gameid;
     private String event;
     private String site;
     private String date;
@@ -20,14 +24,17 @@ public class Games implements Serializable {
     private int black_elo;
     private String eco;
     private String moves;
+    private String[] w;
+    private String[] b;
 
     //private Map<Integer,String> moves_white = new HashMap<Integer,String>();
     //private Map<Integer,String> moves_black = new HashMap<Integer,String>();
 
     public Games(){}
 
-    public Games(String event, String site, String date, int round, String white, String black,
-                 String result, int white_elo, int black_elo, String eco, String moves) {
+    public Games(String gameid, String event, String site, String date, int round, String white, String black,
+                 String result, int white_elo, int black_elo, String eco, String moves, String[] w, String[] b) {
+        this.gameid = gameid;
         this.event = event;
         this.site = site;
         this.date = date;
@@ -39,7 +46,16 @@ public class Games implements Serializable {
         this.black_elo = black_elo;
         this.eco = eco;
         this.moves = moves;
-        //setMoves(moves);
+        this.w = w;
+        this.b = b;
+    }
+
+    public String getGameid() {
+        return gameid;
+    }
+
+    public void setGameid(String gameid) {
+        this.gameid = gameid;
     }
 
     public String getEvent() {
@@ -128,6 +144,38 @@ public class Games implements Serializable {
 
     public void setMoves(String moves) {
         this.moves = moves;
+    }
+
+    public String[] getW() {
+        return w;
+    }
+
+    public void setW(String[] w) {
+        this.w = w;
+    }
+
+    public String[] getB() {
+        return b;
+    }
+
+    public void setB(String[] b) {
+        this.b = b;
+    }
+
+    public String toJSON(){
+        ObjectMapper mapper = new ObjectMapper();
+        //String name = this.name.split(",")[1];
+        String filename = this.toString()+".json";
+        try{
+            mapper.writeValue(new File(System.getProperty("user.dir")+File.separator+"JSON_files"+File.separator+filename),this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return filename;
+    }
+
+    public String getJSONstring(){
+        return this.toString()+".json";
     }
 
 //    public Map<Integer,String> getMoves() throws ConcurrentModificationException{

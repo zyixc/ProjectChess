@@ -20,13 +20,17 @@ public class runClientTest {
             DataOutputStream os = new DataOutputStream(socket.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
             os.writeBytes("request.player?Aagaard"+"\n"); os.flush();
-            String line = null;
+            System.out.println("request send");
+            String line;
             if((line = in.readLine()) != null) {
-//                ObjectMapper mapper = new ObjectMapper();
-//                Player player = mapper.readValue(line,Player.class);
-//                System.out.println(player.toString());
-//                System.out.println(player.getName());
-                System.out.println(line);
+                if(line.equals("no.result")){
+                    System.out.println("no result found");
+                    return;
+                }
+                ObjectMapper mapper = new ObjectMapper();
+                Player player = mapper.readValue(line,Player.class);
+                System.out.println(player.toString());
+                System.out.println(player.getName());
             }
             socket.close();
         }catch(Exception e){
