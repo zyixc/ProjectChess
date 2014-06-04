@@ -22,7 +22,7 @@ public class Server implements Runnable{
             this.runningThread = Thread.currentThread();
         }
         openServerSocket();
-        while(! isStopped()){
+        while(!isStopped()){
             Socket clientSocket = null;
             try {
                 clientSocket = this.serverSocket.accept();
@@ -33,9 +33,7 @@ public class Server implements Runnable{
                 }
                 throw new RuntimeException("Error accepting client connection", e);
             }
-            new Thread(
-                    new WorkerRunnable(clientSocket, "Multithreaded Server")
-            ).start();
+            new Thread(new WorkerRunnable(clientSocket, "Multithreaded Server")).start();
         }
         System.out.println("Server Stopped.") ;
     }
@@ -65,12 +63,13 @@ public class Server implements Runnable{
     public static void main(String[] args) {
         Server server = new Server();
         System.out.println("SERVER STARTING!!");
-        new Thread(server).start();
-        try {
-            Thread.sleep(20 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while(true) {
+            new Thread(server).start();
+            try {
+                Thread.sleep(24 * 60 * 60 * 1000);
+            } catch (InterruptedException e) {
+                System.err.println("Thread has not been used in 24 hours.");
+            }
         }
-        server.stop();
     }
 }
