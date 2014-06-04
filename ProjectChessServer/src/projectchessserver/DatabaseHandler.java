@@ -131,7 +131,7 @@ public class DatabaseHandler {
             if (blackopening2 != null) query.append("AND w2 = '" + blackopening2 + "' ");
             if (blackopening3 != null) query.append("AND w3 = '" + blackopening3 + "' ");
             if (eco != null) query.append("AND eco = '" + eco + "' ");
-            query.append("LIMIT 100 ");
+            query.append("LIMIT 100");
 
             //info to Objects
             Statement stmt = conn.createStatement();
