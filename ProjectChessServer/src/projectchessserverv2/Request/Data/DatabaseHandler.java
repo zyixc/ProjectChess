@@ -1,6 +1,8 @@
 package projectchessserverv2.Request.Data;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zyixc on 4-6-2014.
@@ -27,6 +29,7 @@ public class DatabaseHandler {
             if(spn_rs.next()){
                 result = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3));
             }
+            result = getGamesFromPlayer(result);
             return result;
         }catch(Exception e){
             e.printStackTrace();
@@ -34,14 +37,13 @@ public class DatabaseHandler {
         return null;
     }
 
-    public Player[] getPlayers(String player_name){
-        Player[] result = null;
+    public List<Player> getPlayers(String player_name){
+        List<Player> result = new ArrayList<>();
         try(PreparedStatement spn = conn.prepareStatement("SELECT * FROM players WHERE lastName LIKE ?");){
             spn.setString(1, player_name + "%");
             ResultSet spn_rs = spn.executeQuery();
-            int counter = 0;
             while(spn_rs.next()){
-                result[counter] = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3));
+                result.add(new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3)));
             }
             return result;
         }catch(Exception e){
@@ -50,13 +52,13 @@ public class DatabaseHandler {
         return null;
     }
 
-    private Game[] queryGames(String query){
-        Game[] games = null;
+    private List<Game> queryGames(String query){
+        List<Game> games = new ArrayList<>();
         try{
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
-                games[rs.getRow()] = new Game(
+                games.add(new Game(
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -71,7 +73,7 @@ public class DatabaseHandler {
                         rs.getString(12),
                         new String[]{rs.getString(13),rs.getString(15),rs.getString(17),rs.getString(19),rs.getString(21)},
                         new String[]{rs.getString(14),rs.getString(16),rs.getString(18),rs.getString(20),rs.getString(22)}
-                );
+                ));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -82,8 +84,8 @@ public class DatabaseHandler {
     public Player getGamesFromPlayer(Player player){
         String queryWhiteGames = "SELECT * FROM games WHERE white = "+player.getId();
         String queryBlackGames = "SELECT * FROM games WHERE black = "+player.getId();
-        Game[] whitegames = queryGames(queryWhiteGames);
-        Game[] blackgames = queryGames(queryBlackGames);
+        List<Game> whitegames = queryGames(queryWhiteGames);
+        List<Game> blackgames = queryGames(queryBlackGames);
         for(Game game: whitegames){
             player.addWhite_games(game);
         }
@@ -93,7 +95,7 @@ public class DatabaseHandler {
         return player;
     }
 
-    public Game[] getGames(String resultfor, String minrating, String maxrating, String whiteopening1,
+    public List<Game> getGames(String resultfor, String minrating, String maxrating, String whiteopening1,
                             String whiteopening2, String whiteopening3, String blackopening1, String blackopening2,
                             String blackopening3, String eco){
         StringBuilder query = new StringBuilder();
