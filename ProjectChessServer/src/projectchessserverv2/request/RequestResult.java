@@ -11,13 +11,13 @@ import java.nio.file.Paths;
  */
 public class RequestResult<T> {
     Object result;
+    ObjectMapper mapper = new ObjectMapper();
 
     public RequestResult(T objecttype){
         this.result = objecttype;
     }
 
     public Path getJSONPath(){
-        ObjectMapper mapper = new ObjectMapper();
         String filepath = System.getProperty("user.dir") + File.separator + "JSON_files" + File.separator + result.hashCode()+".json";
         try {
             mapper.writeValue(new File(filepath), result);
@@ -28,7 +28,6 @@ public class RequestResult<T> {
     }
 
     public String getJSONString(){
-        ObjectMapper mapper = new ObjectMapper();
         String filestring = null;
         try {
             filestring = mapper.writeValueAsString(result);

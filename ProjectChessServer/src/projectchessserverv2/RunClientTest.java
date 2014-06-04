@@ -1,40 +1,44 @@
 package projectchessserverv2;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import projectchessserver.data.Player;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zyixc on 27-5-2014.
  */
 public class RunClientTest {
     private final static String hostname = "localhost";
-    private final static int port = 4444;
+    private final static int port = 8080;
+    private ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args){
         try(
                 Socket socket = new Socket(hostname,port);
-                DataInputStream is = new DataInputStream(socket.getInputStream());
-                DataOutputStream os = new DataOutputStream(socket.getOutputStream());
+                InputStream is = socket.getInputStream();
+                OutputStream os = socket.getOutputStream();
                 BufferedReader in = new BufferedReader(new InputStreamReader(is));)
         {
-            os.writeBytes("request.player?Aagaard"+"\n"); os.flush();
+            //os.writeBytes("request.player?Aagaard"+"\n"); os.flush();
+            os.write(("request.players?Aagaard"+"\n").getBytes()); os.flush();
             System.out.println("request send");
             String line;
             if((line = in.readLine()) != null) {
-                if(line.equals("no.result")){
-                    System.out.println("no result found");
-                    return;
-                }
                 ObjectMapper mapper = new ObjectMapper();
-                Player player = mapper.readValue(line,Player.class);
-                System.out.println(player.toString());
-                System.out.println(player.getFirstname()+" "+player.getLastname());
+                //Player player = mapper.readValue(line,Player.class);
+                List<Player> players = mapper.readValue(line, new TypeReference<List<Player>>() { });
+                System.out.println(players.toString());
             }
         }catch(Exception e){
             e.printStackTrace();
         }
     }
+
 }

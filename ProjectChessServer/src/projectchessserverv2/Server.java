@@ -11,11 +11,10 @@ public class Server implements Runnable{
 
     private int serverPort = 8080;
     private ServerSocket serverSocket = null;
-    private boolean isStopped  = false;
+    private volatile boolean isStopped  = false;
     private Thread runningThread= null;
 
-    public Server(int port){
-        this.serverPort = port;
+    public Server(){
     }
 
     public void run(){
@@ -64,7 +63,7 @@ public class Server implements Runnable{
     }
 
     public static void main(String[] args) {
-        Server server = new Server(9000);
+        Server server = new Server();
         System.out.println("SERVER STARTING!!");
         new Thread(server).start();
         try {

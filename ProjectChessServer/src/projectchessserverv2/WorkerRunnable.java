@@ -35,8 +35,7 @@ public class WorkerRunnable implements Runnable{
                 RequestHandler rq = new RequestHandler(line);
                 Path filepath = rq.processRequest();
                 byte[] encoded = Files.readAllBytes(filepath);
-                String filestring = new String(encoded, Charset.defaultCharset());
-                os.writeBytes(filestring);
+                os.writeBytes(new String(encoded, Charset.defaultCharset()));
                 os.flush();
                 System.out.println("request succesfully handled: " + filepath.toString());
 
