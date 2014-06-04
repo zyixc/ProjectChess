@@ -9,7 +9,7 @@ import java.net.Socket;
 /**
  * Created by zyixc on 27-5-2014.
  */
-public class runClientTest {
+public class RunClientTest {
     private final static String hostname = "localhost";
     private final static int port = 4444;
 

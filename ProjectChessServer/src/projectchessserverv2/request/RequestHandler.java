@@ -1,8 +1,8 @@
-package projectchessserverv2.Request;
+package projectchessserverv2.request;
 
-import projectchessserverv2.Request.Data.Player;
-import projectchessserverv2.Request.Data.DatabaseHandler;
-import projectchessserverv2.Request.Data.Game;
+import projectchessserverv2.request.data.Player;
+import projectchessserverv2.request.data.DatabaseHandler;
+import projectchessserverv2.request.data.Game;
 
 import java.nio.file.Path;
 import java.util.List;

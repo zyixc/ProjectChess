@@ -1,4 +1,4 @@
-package projectchessserverv2.Request;
+package projectchessserverv2.request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

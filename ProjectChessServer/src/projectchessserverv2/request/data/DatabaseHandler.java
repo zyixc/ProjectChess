@@ -1,4 +1,4 @@
-package projectchessserverv2.Request.Data;
+package projectchessserverv2.request.data;
 
 import java.sql.*;
 import java.util.ArrayList;

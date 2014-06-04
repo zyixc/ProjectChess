@@ -1,6 +1,6 @@
 package projectchessserverv2;
 
-import projectchessserverv2.Request.RequestHandler;
+import projectchessserverv2.request.RequestHandler;
 
 import java.io.*;
 import java.net.Socket;
@@ -38,7 +38,7 @@ public class WorkerRunnable implements Runnable{
                 String filestring = new String(encoded, Charset.defaultCharset());
                 os.writeBytes(filestring);
                 os.flush();
-                System.out.println("Request succesfully handled: " + filepath.toString());
+                System.out.println("request succesfully handled: " + filepath.toString());
 
                 //delete file
                 Files.delete(filepath);

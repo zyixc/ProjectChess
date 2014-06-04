@@ -1,4 +1,4 @@
-package projectchessserverv2.Request.Data;
+package projectchessserverv2.request.data;
 
 /**
  * Created by zyixc on 20-5-2014.
