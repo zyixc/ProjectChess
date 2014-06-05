@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by zyixc on 15-5-2014.
  */
-public enum RunClientTest{
+public enum Client {
     INSTANCE;
     private final static String hostname = "localhost";
     private final static int port = 8080;
@@ -90,8 +90,8 @@ public enum RunClientTest{
         try{
             openConnection();
             os.write(("request.games?"+resultfor+"&"+minrating+"&"+maxrating+"&"+whiteopening1+"&"
-                    +whiteopening2+"&"+whiteopening3+"&"+blackopening1+"&"+blackopening2+"&"+blackopening2+"&"
-                    +blackopening2+"&"+"\n").getBytes());
+                    +whiteopening2+"&"+whiteopening3+"&"+blackopening1+"&"+blackopening2+"&"+blackopening3+"&"
+                    +eco+"&"+"\n").getBytes());
             os.flush();
             String answer;
             if((answer = in.readLine()) != null) {
@@ -106,8 +106,5 @@ public enum RunClientTest{
         return null;
     }
 
-    private static void main(String[] args){
-
-    }
 }
 

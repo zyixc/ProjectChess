@@ -46,8 +46,8 @@ public class RequestHandler {
     }
 
     private List<Game> requestTypeGames(String[] prequest){
-        List<Game> games = db.getGames(prequest[3],prequest[4],prequest[5],prequest[6],prequest[7],prequest[8],prequest[9],
-                prequest[10],prequest[11],prequest[12]);
+        List<Game> games = db.getGames(prequest[2],prequest[3],prequest[4],prequest[5],prequest[6],prequest[7],prequest[8],prequest[9],
+                prequest[10],prequest[11]);
         return games;
     }
 
