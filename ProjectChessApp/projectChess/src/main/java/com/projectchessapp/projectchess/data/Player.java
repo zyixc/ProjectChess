@@ -1,8 +1,5 @@
 package com.projectchessapp.projectchess.data;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +10,8 @@ public class Player{
     private String id;
     private String firstname;
     private String lastname;
-    private List<Games> white_games = new ArrayList<Games>();
-    private List<Games> black_games = new ArrayList<Games>();
+    private List<Game> white_games = new ArrayList<Game>();
+    private List<Game> black_games = new ArrayList<Game>();
 
     public Player(){}
 
@@ -36,30 +33,19 @@ public class Player{
         return lastname;
     }
 
-    public List<Games> getWhite_games() {
+    public List<Game> getWhite_games() {
         return white_games;
     }
 
-    public List<Games> getBlack_games() {
+    public List<Game> getBlack_games() {
         return black_games;
     }
 
-    public void addWhite_games(Games e){
+    public void addWhite_games(Game e){
         white_games.add(e);
     }
 
-    public void addBlack_games(Games e){
+    public void addBlack_games(Game e){
         black_games.add(e);
-    }
-
-    public String toJSON(){
-        ObjectMapper mapper = new ObjectMapper();
-        String filename = this.lastname+".json";
-        try{
-            mapper.writeValue(new File(System.getProperty("user.dir")+File.separator+"JSON_files"+File.separator+filename),this);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return filename;
     }
 }

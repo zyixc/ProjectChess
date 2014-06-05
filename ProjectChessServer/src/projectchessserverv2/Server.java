@@ -38,7 +38,6 @@ public class Server implements Runnable{
         System.out.println("Server Stopped.") ;
     }
 
-
     private synchronized boolean isStopped() {
         return this.isStopped;
     }

@@ -1,17 +1,9 @@
 package com.projectchessapp.projectchess.data;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.Serializable;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by zyixc on 20-5-2014.
  */
-public class Games{
+public class Game {
     private String gameid;
     private String event;
     private String site;
@@ -30,10 +22,10 @@ public class Games{
     //private Map<Integer,String> moves_white = new HashMap<Integer,String>();
     //private Map<Integer,String> moves_black = new HashMap<Integer,String>();
 
-    public Games(){}
+    public Game(){}
 
-    public Games(String gameid, String event, String site, String date, int round, String white, String black,
-                 String result, int white_elo, int black_elo, String eco, String moves, String[] w, String[] b) {
+    public Game(String gameid, String event, String site, String date, int round, String white, String black,
+                String result, int white_elo, int black_elo, String eco, String moves, String[] w, String[] b) {
         this.gameid = gameid;
         this.event = event;
         this.site = site;
@@ -161,47 +153,4 @@ public class Games{
     public void setB(String[] b) {
         this.b = b;
     }
-
-    public String toJSON(){
-        ObjectMapper mapper = new ObjectMapper();
-        //String name = this.name.split(",")[1];
-        String filename = this.toString()+".json";
-        try{
-            mapper.writeValue(new File(System.getProperty("user.dir")+File.separator+"JSON_files"+File.separator+filename),this);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return filename;
-    }
-
-//    public Map<Integer,String> getMoves() throws ConcurrentModificationException{
-//        Map<Integer,String> result = new HashMap<Integer, String>();
-//        for(int i = 0; i < moves_white.size(); i+=2){
-//            result.put(i,moves_white.get(i));
-//            result.put(i+1,moves_black.get(i));
-//        }
-//        return result;
-//    }
-//
-//    public Map<Integer, String> getMoves_white() {
-//        return moves_white;
-//    }
-//
-//    public Map<Integer, String> getMoves_black() {
-//        return moves_black;
-//    }
-//
-//    public void setMoves(String input){
-//        try {
-//            String[] input_split_result = input.split("\\s");
-//            int movecount = 1;
-//            for (int i = 0; i < input_split_result.length; i += 3) {
-//                moves_white.put(movecount, input_split_result[i + 1]);
-//                moves_black.put(movecount, input_split_result[i + 2]);
-//                movecount++;
-//            }
-//        }catch(Exception e){
-//
-//        }
-//    }
 }
