@@ -44,6 +44,9 @@ public class WorkerRunnable implements Runnable{
                 System.out.println("File deleted: " + filepath.toString());
             }
 
+            System.out.println("Connection closed from " + clientSocket .getInetAddress() + " on port " + clientSocket .getPort()
+                    + " to port " + clientSocket .getLocalPort() + " of " + clientSocket .getLocalAddress());
+
         } catch (Exception e) {
             e.printStackTrace();
         }

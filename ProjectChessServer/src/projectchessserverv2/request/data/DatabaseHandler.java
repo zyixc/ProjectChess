@@ -75,6 +75,7 @@ public class DatabaseHandler {
                         new String[]{rs.getString(14),rs.getString(16),rs.getString(18),rs.getString(20),rs.getString(22)}
                 ));
             }
+            return games;
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -104,23 +105,20 @@ public class DatabaseHandler {
                             String blackopening3, String eco){
         StringBuilder query = new StringBuilder();
         query.append("SELECT * FROM `games` WHERE ");
-        if (resultfor==null) query.append("1 ");
+        if (resultfor.equals("null")) query.append("1 ");
         else if (resultfor.equals("w")) query.append("`result` = '1-0' ");
         else if (resultfor.equals("b")) query.append("`result` = '0-1' ");
         else if (resultfor.equals("d")) query.append("`result` = '1/2-1/2' ");
-        if (minrating != null) query.append("AND `white_elo` > " + minrating + " AND `black_elo` > " + minrating + " ");
-        if (minrating != null) query.append("AND `white_elo` < " + maxrating + " AND `black_elo` < " + maxrating + " ");
-        if (whiteopening1 != null) query.append("AND `w1` = '" + whiteopening1 + "' ");
-        if (whiteopening2 != null) query.append("AND `w2` = '" + whiteopening2 + "' ");
-        if (whiteopening3 != null) query.append("AND `w3` = '" + whiteopening3 + "' ");
-        if (blackopening1 != null) query.append("AND `w1` = '" + blackopening1 + "' ");
-        if (blackopening2 != null) query.append("AND `w2` = '" + blackopening2 + "' ");
-        if (blackopening3 != null) query.append("AND `w3` = '" + blackopening3 + "' ");
-        if (eco != null) query.append("AND `eco` = '" + eco + "' ");
+        if (!minrating.equals("null")) query.append("AND `white_elo` > " + minrating + " AND `black_elo` > " + minrating + " ");
+        if (!minrating.equals("null")) query.append("AND `white_elo` < " + maxrating + " AND `black_elo` < " + maxrating + " ");
+        if (!whiteopening1.equals("null")) query.append("AND `w1` = '" + whiteopening1 + "' ");
+        if (!whiteopening2.equals("null")) query.append("AND `w2` = '" + whiteopening2 + "' ");
+        if (!whiteopening3.equals("null")) query.append("AND `w3` = '" + whiteopening3 + "' ");
+        if (!blackopening1.equals("null")) query.append("AND `w1` = '" + blackopening1 + "' ");
+        if (!blackopening2.equals("null")) query.append("AND `w2` = '" + blackopening2 + "' ");
+        if (!blackopening3.equals("null")) query.append("AND `w3` = '" + blackopening3 + "' ");
+        if (!eco.equals("null")) query.append("AND `eco` = '" + eco + "' ");
         query.append("ORDER BY `id` ASC LIMIT 100");
-        //TODO .equals(null) ??
-
-        System.out.println(query.toString());
 
         return queryGames(query.toString());
     }
@@ -128,11 +126,8 @@ public class DatabaseHandler {
     public static void main(String[] args){
         DatabaseHandler db = new DatabaseHandler();
         List<Game> games = db.getGames(null,null,null,null,null,null,null,null,null,null);
-        System.out.println(games.size());
         if(games != null) {
-            for (Game game : games) {
-                System.out.println(game.getGameid());
-            }
+            System.out.println("games found");
         }else{
             System.out.println("no games found");
         }

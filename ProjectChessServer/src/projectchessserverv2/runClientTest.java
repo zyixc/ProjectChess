@@ -15,13 +15,13 @@ public class runClientTest {
 //            System.out.println(dimitri.getFirstname()+" "+dimitri.getLastname());
 //        else
 //            System.out.println("Object returned null!");
-//        List<Player> playerlist = Client.INSTANCE.requestPlayerList("Reinderman");
-//        for(Player player: playerlist){
-//            System.out.println(player.getFirstname()+" "+player.getLastname());
-//        }
-        List<Game> gamelist = Client.INSTANCE.requestGameList(null,"1200","2000",null,null,null,null,null,null,"A32");
-        for(Game game: gamelist){
-            System.out.println(game.getGameid()+" "+game.getDate());
+        List<Player> playerlist = Client.INSTANCE.requestPlayerList("Reinderman");
+        for(Player player: playerlist){
+            System.out.println(player.getFirstname()+" "+player.getLastname());
         }
+//        List<Game> gamelist = Client.INSTANCE.requestGameList(null,"1200","2000",null,null,null,null,null,null,"A32");
+//        for(Game game: gamelist){
+//            System.out.println(game.getGameid()+" "+game.getDate());
+//        }
     }
 }

@@ -28,21 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorkerRunnable.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WorkerRunnable.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/WorkerRunnable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="765">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestResult.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="585">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7660312" vertical-offset="255" max-vertical-offset="918">
+              <caret line="47" column="109" selection-start-line="47" selection-start-column="109" selection-end-line="47" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -51,61 +41,9 @@
       <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1140">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="1292">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseHandler.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/data/DatabaseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1782477" vertical-offset="1425" max-vertical-offset="2160">
-              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="735">
-              <caret line="47" column="59" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
-              <folding>
-                <element signature="method#requestTypePlayer#0;class#RequestHandler#0" expanded="false" />
-                <element signature="method#requestTypePlayers#0;class#RequestHandler#0" expanded="false" />
-                <element signature="method#main#0;class#RequestHandler#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="1005">
-              <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#openConnection#0;class#Client#0" expanded="false" />
-                <element signature="method#closeConnection#0;class#Client#0" expanded="false" />
-                <element signature="method#requestPlayer#0;class#Client#0" expanded="false" />
-                <element signature="method#requestPlayerList#0;class#Client#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="runClientTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <caret line="21" column="112" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -146,21 +84,22 @@
         <option value="$PROJECT_DIR$/src/projectchessserverv2/Request/Data/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/Request/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/Request/RequestResult.java" />
-        <option value="$PROJECT_DIR$/src/projectchessserverv2/WorkerRunnable.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/request/RequestResult.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/Server.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/RunClientTest.java" />
-        <option value="$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/Client.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/request/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java" />
         <option value="$PROJECT_DIR$/src/projectchessserverv2/request/data/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/src/projectchessserverv2/WorkerRunnable.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="width" value="1370" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -270,7 +209,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -371,6 +309,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,7 +342,7 @@
       <recent name="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChessServer\src\parsers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DatabaseHandler">
+  <component name="RunManager" selected="Application.runClientTest (1)">
     <configuration default="false" name="RequestHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectchessserverv2.request.RequestHandler" />
       <option name="VM_PARAMETERS" />
@@ -519,6 +458,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -544,19 +496,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -622,9 +561,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.DatabaseHandler" />
-        <item index="1" class="java.lang.String" itemvalue="Application.runClientTest (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="0" class="java.lang.String" itemvalue="Application.runClientTest (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="2" class="java.lang.String" itemvalue="Application.DatabaseHandler" />
         <item index="3" class="java.lang.String" itemvalue="Application.Client" />
         <item index="4" class="java.lang.String" itemvalue="Application.RequestHandler" />
       </list>
@@ -672,8 +611,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="0" width="1370" height="745" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -688,15 +627,15 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32807216" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3997555" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26979473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41717792" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" x="-2" y="611" width="1680" height="254" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20660147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31715575" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" x="-2" y="611" width="1680" height="254" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -719,15 +658,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestHandler.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -735,29 +666,19 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="782">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="990">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="method#requestTypePlayer#0;class#RequestHandler#0" expanded="false" />
-            <element signature="method#requestTypePlayers#0;class#RequestHandler#0" expanded="false" />
-            <element signature="method#main#0;class#RequestHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="750">
-          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#openConnection#0;class#Client#0" expanded="false" />
-            <element signature="method#closeConnection#0;class#Client#0" expanded="false" />
-            <element signature="method#requestPlayer#0;class#Client#0" expanded="false" />
-            <element signature="method#requestPlayerList#0;class#Client#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,28 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/WorkerRunnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="1005">
-          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#openConnection#0;class#Client#0" expanded="false" />
-            <element signature="method#closeConnection#0;class#Client#0" expanded="false" />
-            <element signature="method#requestPlayer#0;class#Client#0" expanded="false" />
-            <element signature="method#requestPlayerList#0;class#Client#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
@@ -1085,40 +984,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="21" column="112" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/RequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="735">
-          <caret line="47" column="59" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
-          <folding>
-            <element signature="method#requestTypePlayer#0;class#RequestHandler#0" expanded="false" />
-            <element signature="method#requestTypePlayers#0;class#RequestHandler#0" expanded="false" />
-            <element signature="method#main#0;class#RequestHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1140">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state vertical-scroll-proportion="1.2668978" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/request/data/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1782477" vertical-offset="1425" max-vertical-offset="2160">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.70537263" vertical-offset="18" max-vertical-offset="595">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding>
+            <element signature="method#DatabaseHandler#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getPlayer#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getPlayers#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#queryGames#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getGamesFromPlayer#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#getGames#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#main#0;class#DatabaseHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/runClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50086653" vertical-offset="0" max-vertical-offset="577">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64818025" vertical-offset="0" max-vertical-offset="646">
+          <caret line="51" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="method#openConnection#0;class#Client#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Client#0" expanded="false" />
+            <element signature="method#requestPlayer#0;class#Client#0" expanded="false" />
+            <element signature="method#requestPlayerList#0;class#Client#0" expanded="false" />
+            <element signature="method#requestGameList#0;class#Client#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="1292">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectchessserverv2/WorkerRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7660312" vertical-offset="255" max-vertical-offset="918">
+          <caret line="47" column="109" selection-start-line="47" selection-start-column="109" selection-end-line="47" selection-end-column="109" />
           <folding />
         </state>
       </provider>
@@ -1164,7 +1087,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1181,7 +1104,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
