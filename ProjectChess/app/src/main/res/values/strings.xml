@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjectChess</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--compare screen -->
+    <string name="compare_screen_result">Result:</string>
+    <string name="compare_screen_result_white">W</string>
+    <string name="compare_screen_result_black">B</string>
+    <string name="compare_screen_result_draw">D</string>
+    <string name="compare_screen_rating">Rating:</string>
+    <string name="compare_screen_rating_min">min</string>
+    <string name="compare_screen_rating_max">max</string>
+</resources>
