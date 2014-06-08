@@ -22,7 +22,4 @@ android {
 dependencies {
     compile 'com.android.support:support-v13:+'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files('librarys/jackson-annotations-2.2.3.jar')
-    compile files('librarys/jackson-core-2.2.3.jar')
-    compile files('librarys/jackson-databind-2.2.3.jar')
 }
