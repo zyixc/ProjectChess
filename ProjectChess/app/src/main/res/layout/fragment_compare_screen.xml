@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_result"
             android:id="@+id/textView"
             android:layout_gravity="left|top" />
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:text="@string/compare_screen_result_white"
             android:id="@+id/radioButton"
-            android:layout_gravity="left|bottom" />
+            android:layout_gravity="left|bottom"
+            android:singleLine="true" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -48,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating"
             android:id="@+id/textView2"
             android:layout_gravity="left|top" />
@@ -56,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating_max"
             android:id="@+id/textView3"
             android:layout_gravity="center_horizontal|top" />
@@ -64,7 +65,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating_min"
             android:id="@+id/textView4"
             android:layout_gravity="center" />
@@ -75,7 +76,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/editText"
-            android:layout_gravity="right|top" />
+            android:layout_gravity="top|right" />
 
         <EditText
             android:layout_width="wrap_content"

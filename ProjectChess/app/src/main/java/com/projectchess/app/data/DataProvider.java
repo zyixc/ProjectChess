@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by zyixc on 15-5-2014.
  */
-public enum ContentProvider{
+public enum DataProvider {
     INSTANCE;
     private final static String hostname = "localhost";
     private final static int port = 8080;
