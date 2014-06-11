@@ -1,6 +1,7 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
+import android.app.ListFragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.DataProvider;
+import com.projectchess.app.data.Player;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,32 +25,12 @@ import com.projectchess.app.R;
  *
  */
 public class PlayerSearchResultListScreen extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    public static List<Player> playerlist;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PlayerSearchResultListScreen.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PlayerSearchResultListScreen newInstance(String param1, String param2) {
+    public static PlayerSearchResultListScreen newInstance(String playerLastName) {
         PlayerSearchResultListScreen fragment = new PlayerSearchResultListScreen();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        playerlist = DataProvider.INSTANCE.requestPlayerList(playerLastName);
         return fragment;
     }
     public PlayerSearchResultListScreen() {
@@ -55,24 +40,16 @@ public class PlayerSearchResultListScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_player_search_result_list_screen, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_player_search_screen,container,false);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+
+
+        return view;
     }
 
     @Override
@@ -103,8 +80,11 @@ public class PlayerSearchResultListScreen extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        enum PlayerSearchResultListScreenOptions{
+            PLAYERPROFILESCREEN
+        }
+
+        public void fromPlayerSearchResultListTo(PlayerSearchResultListScreenOptions option, Player player);
     }
 
 }

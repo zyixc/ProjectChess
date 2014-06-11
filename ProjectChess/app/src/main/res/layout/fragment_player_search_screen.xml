@@ -15,17 +15,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/player_search_screen"
+            android:text="@string/player_search_screen_lastname"
             android:id="@+id/fPSS_LastName_TextView"
             android:layout_gravity="left|center_vertical" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/fPPS_LastName_EditText"
             android:ems="10"
             android:layout_gravity="right|center_vertical"
             android:inputType="textNoSuggestions" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/player_search_screen_search"
+            android:id="@+id/fPPS_Search_Button"
+            android:layout_gravity="center_horizontal|bottom" />
 
     </FrameLayout>
 </LinearLayout>

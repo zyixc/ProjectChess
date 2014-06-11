@@ -10,11 +10,12 @@
         android:layout_weight="0.5">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_gravity="center" />
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/start_screen_playersearch"
+            android:id="@+id/fSS_PlayerSearch_Button"
+            android:layout_gravity="center"
+            android:background="@drawable/customborder" />
     </FrameLayout>
 
     <FrameLayout
@@ -23,11 +24,12 @@
         android:layout_weight="0.5">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2"
-            android:layout_gravity="center" />
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/start_screen_gamesearch"
+            android:id="@+id/fSS_GameSearch_Button"
+            android:layout_gravity="left|top"
+            android:background="@drawable/customborder" />
     </FrameLayout>
 
 </LinearLayout>
