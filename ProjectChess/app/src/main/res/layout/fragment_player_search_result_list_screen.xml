@@ -6,7 +6,7 @@
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/FPSSLS_PlayerList_ListView"
+        android:id="@+id/fPSSLS_PlayerList_ListView"
         android:layout_gravity="left|top"
         android:background="@drawable/customborder" />
 </FrameLayout>

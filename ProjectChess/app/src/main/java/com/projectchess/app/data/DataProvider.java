@@ -1,5 +1,7 @@
 package com.projectchess.app.data;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -15,7 +17,7 @@ import java.util.List;
  */
 public enum DataProvider {
     INSTANCE;
-    private final static String hostname = "localhost";
+    private final static String hostname = "10.0.2.2";
     private final static int port = 8080;
     private ObjectMapper mapper = new ObjectMapper();
     private static Socket socket;
@@ -30,8 +32,10 @@ public enum DataProvider {
             is = socket.getInputStream();
             os = socket.getOutputStream();
             in = new BufferedReader(new InputStreamReader(is));
+            Log.i("connection","succesfull");
         }catch(Exception e){
             e.printStackTrace();
+            Log.i("connection","unsuccesfull");
         }
     }
 

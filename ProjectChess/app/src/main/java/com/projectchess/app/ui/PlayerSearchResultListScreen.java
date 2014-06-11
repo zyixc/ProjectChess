@@ -2,17 +2,26 @@ package com.projectchess.app.ui;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.projectchess.app.R;
 import com.projectchess.app.data.DataProvider;
 import com.projectchess.app.data.Player;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +35,20 @@ import java.util.List;
  */
 public class PlayerSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
-    public static List<Player> playerlist;
+    public static List<Player> listOfPlayers;
 
     public static PlayerSearchResultListScreen newInstance(String playerLastName) {
         PlayerSearchResultListScreen fragment = new PlayerSearchResultListScreen();
-        playerlist = DataProvider.INSTANCE.requestPlayerList(playerLastName);
+        //TODO not working yet
+        //listOfPlayers = DataProvider.INSTANCE.requestPlayerList(playerLastName);
+        List<Player> testplayers = new ArrayList<Player>();
+        testplayers.add(new Player("1","testcase1","lastName1"));
+        testplayers.add(new Player("2","testcase2","lastName2"));
+        testplayers.add(new Player("3","testcase3","lastName3"));
+        listOfPlayers = testplayers;
         return fragment;
     }
+
     public PlayerSearchResultListScreen() {
         // Required empty public constructor
     }
@@ -45,10 +61,22 @@ public class PlayerSearchResultListScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_player_search_screen,container,false);
+        final View view = inflater.inflate(R.layout.fragment_player_search_result_list_screen,container,false);
+        Log.i("playersearchresultlistscreen","View");
+        ListView listView = (ListView) view.findViewById(R.id.fPSSLS_PlayerList_ListView);
+        Log.i("playersearchresultlistscreen","ListView");
+        PlayerArrayAdapter adapter = new PlayerArrayAdapter(view.getContext(), listOfPlayers);
+        Log.i("playersearchresultlistscreen","Adapter");
+        listView.setAdapter(adapter);
+        Log.i("playersearchresultlistscreen","SetAdapter");
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
-
+            }
+        });
+        Log.i("playersearchresultlistscreen","setonclicklistener");
         return view;
     }
 
@@ -87,4 +115,30 @@ public class PlayerSearchResultListScreen extends Fragment {
         public void fromPlayerSearchResultListTo(PlayerSearchResultListScreenOptions option, Player player);
     }
 
+    private class PlayerArrayAdapter extends ArrayAdapter<Player> {
+        private final Context context;
+        private final List<Player> playerList;
+
+        public PlayerArrayAdapter(Context context, List<Player> players) {
+            super(context, R.layout.fragment_player_search_result_list_row, players);
+            this.playerList = players;
+            this.context = context;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View rowView = inflater.inflate(R.layout.fragment_player_search_result_list_row, parent, false);
+            TextView name = (TextView) rowView.findViewById(R.id.fPSSLR_Name_TextView);
+            TextView rating = (TextView) rowView.findViewById(R.id.fPSSLR_Rating_TextView);
+            TextView numberofgames = (TextView) rowView.findViewById(R.id.fPSSLR_NumberOfGames_TextView);
+
+            Player temp = playerList.get(position);
+            name.setText(temp.getFirstname()+" "+temp.getLastname());
+            //TODO change when implemented
+            rating.setText("1111/PH");
+            numberofgames.setText("123/PH");
+            return convertView;
+        }
+    }
 }
