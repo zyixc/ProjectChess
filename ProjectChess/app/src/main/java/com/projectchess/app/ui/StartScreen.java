@@ -32,14 +32,14 @@ public class StartScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start_screen,container,false);
-        Button buttonToPlayerSearch = (Button) view.findViewById(R.id.fSS_PlayerSearch_Button);
+        Button buttonToPlayerSearch = (Button) view.findViewById(R.id.FSS_player_search_button);
         buttonToPlayerSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.fromStartScreenTo(OnFragmentInteractionListener.StartScreenOptions.PLAYERSEARCHSCREEN);
             }
         });
 
-        Button buttonToGameSearch = (Button) view.findViewById(R.id.fSS_GameSearch_Button);
+        Button buttonToGameSearch = (Button) view.findViewById(R.id.FSS_game_search_button);
         buttonToGameSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.fromStartScreenTo(OnFragmentInteractionListener.StartScreenOptions.GAMESEARCHSCREEN);

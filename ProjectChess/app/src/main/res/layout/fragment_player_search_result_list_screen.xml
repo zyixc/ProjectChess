@@ -1,12 +1,14 @@
-<FrameLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PlayerSearchResultListScreen">
 
+    <!-- TODO: Update blank fragment layout -->
     <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/fPSSLS_PlayerList_ListView"
-        android:layout_gravity="left|top"
-        android:background="@drawable/customborder" />
+        android:id="@+id/FPSR_player_search_result_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 </FrameLayout>

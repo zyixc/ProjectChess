@@ -42,8 +42,8 @@ public class PlayerSearchScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_player_search_screen,container,false);
-        final EditText lastName = (EditText) view.findViewById(R.id.fPPS_LastName_EditText);
-        Button buttonPlayerSearch = (Button) view.findViewById(R.id.fPPS_Search_Button);
+        final EditText lastName = (EditText) view.findViewById(R.id.FPSS_lastname_editText);
+        Button buttonPlayerSearch = (Button) view.findViewById(R.id.FPSS_search_button);
         buttonPlayerSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!lastName.getText().toString().equals("")){

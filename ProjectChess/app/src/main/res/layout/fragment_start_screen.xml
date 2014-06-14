@@ -1,35 +1,47 @@
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.5">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="270sp"
+        android:background="@drawable/ic_launcher"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="@string/start_screen_playersearch"
-            android:id="@+id/fSS_PlayerSearch_Button"
-            android:layout_gravity="center"
-            android:background="@drawable/customborder" />
-    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:textSize="38dp"
+        android:id="@+id/SS_app_name_textView"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.5">
+    <Button
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:text="@string/start_screen_player_search_button"
+        android:background="@drawable/btnborder"
+        android:textColor="#ffffff"
+        android:id="@+id/FSS_player_search_button"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/SS_app_name_textView"
+        android:layout_centerHorizontal="true" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="@string/start_screen_gamesearch"
-            android:id="@+id/fSS_GameSearch_Button"
-            android:layout_gravity="left|top"
-            android:background="@drawable/customborder" />
-    </FrameLayout>
-
-</LinearLayout>
+    <Button
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:text="@string/start_screen_game_search_button"
+        android:id="@+id/FSS_game_search_button"
+        android:background="@drawable/btnborder"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/FSS_player_search_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+</RelativeLayout>

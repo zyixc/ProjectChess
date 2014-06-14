@@ -63,7 +63,7 @@ public class PlayerSearchResultListScreen extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_player_search_result_list_screen,container,false);
         Log.i("playersearchresultlistscreen","View");
-        ListView listView = (ListView) view.findViewById(R.id.fPSSLS_PlayerList_ListView);
+        ListView listView = (ListView) view.findViewById(R.id.FPSR_player_search_result_listView);
         Log.i("playersearchresultlistscreen","ListView");
         PlayerArrayAdapter adapter = new PlayerArrayAdapter(view.getContext(), listOfPlayers);
         Log.i("playersearchresultlistscreen","Adapter");

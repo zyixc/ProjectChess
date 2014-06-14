@@ -1,13 +1,178 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GameProfileScreen">
+    android:padding="10sp"
+    tools:context=".ui.GameProfileScreen"
+    android:id="@+id/FGPS_layout">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FCS_result_view"
+        android:layout_gravity="left|top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_black_name"
+        android:id="@+id/FCS_rating_textView"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_below="@+id/FCS_result_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_result"
+        android:id="@+id/FCS_rating_max"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_result_display"
+        android:id="@+id/FGPS_result_textView"
+        android:layout_below="@+id/FCS_rating_max"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_white"
+        android:id="@+id/FGPS_white_player"
+        android:layout_alignTop="@+id/FCS_rating_max"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_white_name"
+        android:id="@+id/FGPS_white_player_name_textView"
+        android:layout_below="@+id/FGPS_white_player"
+        android:layout_alignRight="@+id/FGPS_white_player"
+        android:layout_alignEnd="@+id/FGPS_white_player" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_move"
+        android:id="@+id/FGPS_move"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/FCS_rating_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_move_out_one"
+        android:id="@+id/FGPS_move_one_textView"
+        android:layout_alignTop="@+id/FGPS_move"
+        android:layout_toRightOf="@+id/FGPS_move" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_move_out"
+        android:id="@+id/FGPS_move_out"
+        android:layout_alignTop="@+id/FGPS_move_one_textView"
+        android:layout_toRightOf="@+id/FGPS_move_one_textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_move_out_two"
+        android:id="@+id/FGPS_move_two_textView"
+        android:layout_alignTop="@+id/FGPS_move_out"
+        android:layout_toRightOf="@+id/FGPS_move_out" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_game"
+        android:id="@+id/FGPS_game"
+        android:layout_alignTop="@+id/FGPS_move_two_textView"
+        android:layout_toLeftOf="@+id/FGPS_game_one_textVieW" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_game_out_one"
+        android:id="@+id/FGPS_game_one_textVieW"
+        android:layout_alignTop="@+id/FGPS_game"
+        android:layout_toLeftOf="@+id/FGPS_game_out" />
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:text="@string/game_detail_screen_compare_button"
+        android:id="@+id/FGPS_compare_button"
+        android:textColor="#ffffff"
+        android:background="@drawable/btnborder"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_previous_button"
+        android:id="@+id/FGPS_previous_button"
+        android:background="@drawable/ic_navigation_back"
+        android:layout_alignTop="@+id/FGPS_next_button"
+        android:layout_toRightOf="@+id/FGPS_move_one_textView"
+        android:layout_toLeftOf="@+id/FGPS_compare_button" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_next_button"
+        android:id="@+id/FGPS_next_button"
+        android:background="@drawable/ic_navigation_forward"
+        android:layout_alignTop="@+id/FGPS_compare_button"
+        android:layout_toRightOf="@+id/FGPS_compare_button"
+        android:layout_toLeftOf="@+id/FGPS_game_one_textVieW" />
+
+    <WebView
+        android:layout_width="900sp"
+        android:layout_height="370sp"
+        android:id="@+id/FGPS_chessboard_webView"
+        android:layout_below="@+id/FGPS_move"
+        android:layout_alignRight="@+id/FGPS_game_two_textView"
+        android:layout_alignEnd="@+id/FGPS_game_two_textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_black"
+        android:id="@+id/FGPS_black_player"
+        android:layout_above="@+id/FCS_rating_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_game_out"
+        android:id="@+id/FGPS_game_out"
+        android:layout_alignTop="@+id/FGPS_game_two_textView"
+        android:layout_toLeftOf="@+id/FGPS_game_two_textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_screen_player_game_out_two"
+        android:id="@+id/FGPS_game_two_textView"
+        android:layout_alignTop="@+id/FGPS_game_one_textVieW"
+        android:layout_alignRight="@+id/FGPS_white_player_name_textView"
+        android:layout_alignEnd="@+id/FGPS_white_player_name_textView" />
+
+</RelativeLayout>

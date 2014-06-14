@@ -2,12 +2,14 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="5sp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:weightSum="1">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/customborder"
         android:layout_weight="0.30">
 
         <TextView
@@ -15,35 +17,39 @@
             android:layout_height="wrap_content"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_result"
-            android:id="@+id/textView"
+            android:id="@+id/FCS_result_view"
             android:layout_gravity="left|top" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/compare_screen_result_white"
-            android:id="@+id/radioButton"
-            android:layout_gravity="left|bottom"
-            android:singleLine="true" />
+            android:text="@string/compare_screen_result_black"
+            android:id="@+id/FCS_result_black_radioButton"
+            android:layout_gravity="center_horizontal|bottom"
+            android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/compare_screen_result_black"
-            android:id="@+id/radioButton2"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:text="@string/compare_screen_result_white"
+            android:id="@+id/FCS_result_white_radioButton"
+            android:layout_gravity="center_horizontal|top"
+            android:singleLine="true"
+            android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/compare_screen_result_draw"
-            android:id="@+id/radioButton3"
-            android:layout_gravity="right|bottom" />
+            android:id="@+id/FCS_result_draw_radioButton"
+            android:layout_gravity="center"
+            android:checked="false" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/customborder"
         android:layout_weight="0.30">
 
         <TextView
@@ -51,7 +57,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating"
-            android:id="@+id/textView2"
+            android:id="@+id/FCS_rating_textView"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -59,7 +65,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating_max"
-            android:id="@+id/textView3"
+            android:id="@+id/FCS_rating_max"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -67,24 +73,40 @@
             android:layout_height="wrap_content"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:text="@string/compare_screen_rating_min"
-            android:id="@+id/textView4"
+            android:id="@+id/FCS_rating_min"
             android:layout_gravity="center" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/FCS_rating_max_editText"
             android:layout_gravity="top|right" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/FCS_rating_min_editText"
             android:layout_gravity="right|center_vertical" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compare_screen_rating_checkedbox_at_least_one"
+            android:id="@+id/checkBox"
+            android:layout_gravity="center_horizontal|bottom"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:text="@string/compare_screen_rating_checkedbox_both"
+            android:id="@+id/checkBox2"
+            android:layout_gravity="right|bottom"
+            android:checked="false" />
     </FrameLayout>
 
     <FrameLayout
@@ -96,7 +118,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView5"
+            android:id="@+id/FGPS_white_player"
             android:layout_gravity="left|top" />
     </FrameLayout>
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:background="@drawable/btnborder"
+        android:textColor="#ffffff"
+        android:text="@string/compare_screen_search_button"
+        android:id="@+id/compare_screen_search_button"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

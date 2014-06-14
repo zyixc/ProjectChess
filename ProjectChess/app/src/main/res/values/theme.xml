@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme"
+        parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/TabTextStyle</item>
+        <item name="android:actionMenuTextColor">#0C090A</item>
+
+        <!-- Support library compatibility -->
+    </style>
+
+    <!-- general styles for the action bar -->
+    <style name="MyActionBar"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:titleTextStyle">@style/TitleTextStyle</item>
+        <item name="android:background">#008080</item>
+        <item name="android:backgroundStacked">#2B65EC</item>
+        <item name="android:backgroundSplit">#5CB3FF</item>
+
+        <!-- Support library compatibility -->
+
+    </style>
+
+    <!-- action bar title text -->
+    <style name="TitleTextStyle"
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#F0F8FF</item>
+    </style>
+
+    <!-- action bar tab text -->
+    <style name="TabTextStyle"
+        parent="@android:style/Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">#F0F8FF</item>
+    </style>
+
+</resources>

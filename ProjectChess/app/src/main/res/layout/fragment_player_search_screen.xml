@@ -8,29 +8,26 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/customborder"
-        android:layout_weight="0.2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/fPSS_LastName_TextView"
-            android:layout_gravity="left|center_vertical" />
+        android:padding="20sp"
+        android:layout_weight="0.2"
+        android:id="@+id/FPSS_layout">
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fPPS_LastName_EditText"
+            android:hint="@string/player_search_screen"
+            android:id="@+id/FPSS_lastname_editText"
             android:ems="10"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="center"
             android:inputType="textNoSuggestions" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/player_search_screen_search"
-            android:id="@+id/fPPS_Search_Button"
+            android:layout_width="100sp"
+            android:layout_height="40sp"
+            android:text="@string/player_search_screen_search_button"
+            android:id="@+id/FPSS_search_button"
+            android:textColor="#ffffff"
+            android:background="@drawable/btnborder"
             android:layout_gravity="center_horizontal|bottom" />
 
     </FrameLayout>

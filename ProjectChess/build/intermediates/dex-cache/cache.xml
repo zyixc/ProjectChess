@@ -2,28 +2,28 @@
 <pre-dex-items>
 
     <item
-        dex="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.3-ec7c2f085bd536e227a5075f5df3443b21659ad9.jar"
-        jar="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\libs\jackson-databind-2.2.3.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="03ae380888029daefb91d3ecdca3a37d8cb92bc9"/>
-    <item
-        dex="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.3-737221c5b6abf8aa82ab990261191fbe8febf7b8.jar"
-        jar="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\libs\jackson-core-2.2.3.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14"/>
-    <item
-        dex="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.3-06f38f94e72b2faa9e42138c8a078ed551d72c2b.jar"
-        jar="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\libs\jackson-annotations-2.2.3.jar"
+        dex="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.3-8039ad32ff5a6366e62fa64c50a47fffc26b953d.jar"
+        jar="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/libs/jackson-annotations-2.2.3.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="0527fece4f23a457070a36c371a26d6c0208e1c3"/>
     <item
-        dex="C:\Users\zyixc\Documents\GitHub\ProjectChess\ProjectChess\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-e311e493b238b75da4095bd5ee7b69d76d73dc42.jar"
-        jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        dex="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-699bab861a6c48a01aa2be597926b84c72142b56.jar"
+        jar="/home/zyixc/Programs/android-studio/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-bbd12fa063d241f2a4c1651c4a1c26c21afcb524.jar"
+        jar="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/libs/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14"/>
+    <item
+        dex="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.3-0397b825112ea7831157aeb4e7d73e1ead66aa8c.jar"
+        jar="/home/zyixc/Workspace-git/ProjectChess/ProjectChess/app/libs/jackson-databind-2.2.3.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="03ae380888029daefb91d3ecdca3a37d8cb92bc9"/>
 
 </pre-dex-items>
