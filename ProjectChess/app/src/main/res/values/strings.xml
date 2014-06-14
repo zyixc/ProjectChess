@@ -22,9 +22,9 @@
 
     <!--game search screen -->
     <string name="game_search_screen_result">Result:</string>
-    <string name="game_search_screen_result_white">W</string>
-    <string name="game_search_screen_result_black">B</string>
-    <string name="game_search_screen_result_draw">D</string>
+    <string name="game_search_screen_result_white">White</string>
+    <string name="game_search_screen_result_black">Black</string>
+    <string name="game_search_screen_result_draw">Draw</string>
     <string name="game_search_screen_rating">Rating:</string>
     <string name="game_search_screen_rating_min">min</string>
     <string name="game_search_screen_rating_max">max</string>
@@ -37,6 +37,7 @@
     <string name="game_search_screen_blackopening_2nd">2nd</string>
     <string name="game_search_screen_blackopening_3rd">3rd</string>
     <string name="game_search_screen_eco">Eco:</string>
+    <string name="game_search_screen_button_search">Search</string>
 
     <!--player search screen-->
     <string name="player_search_screen">Search by LastName</string>

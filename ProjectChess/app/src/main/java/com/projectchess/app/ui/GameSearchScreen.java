@@ -7,8 +7,13 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.DataProvider;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,8 +43,33 @@ public class GameSearchScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_search_screen, container, false);
+        final View view = inflater.inflate(R.layout.fragment_game_search_screen, container, false);
+        final RadioGroup result = (RadioGroup) view.findViewById(R.id.fGSS_Result_RadioGroup);
+        final EditText min = (EditText) view.findViewById(R.id.fGSS_Rating_EditText_Min);
+        final EditText max = (EditText) view.findViewById(R.id.fGSS_Rating_EditText_Max);
+        final EditText w1 = (EditText) view.findViewById(R.id.fGSS_WhiteOpening_EditText_1st);
+        final EditText w2 = (EditText) view.findViewById(R.id.fGSS_WhiteOpening_EditText_2nd);
+        final EditText w3 = (EditText) view.findViewById(R.id.fGSS_WhiteOpening_EditText_3rd);
+        final EditText b1 = (EditText) view.findViewById(R.id.fGSS_BlackOpening_EditText_1st);
+        final EditText b2 = (EditText) view.findViewById(R.id.fGSS_BlackOpening_EditText_2nd);
+        final EditText b3 = (EditText) view.findViewById(R.id.fGSS_BlackOpening_EditText_3rd);
+        final EditText eco = (EditText) view.findViewById(R.id.fGSS_Eco_EditText);
+        Button search = (Button) view.findViewById(R.id.fGSS_Search_Button);
+        search.setOnClickListener(new View.OnClickListener() {
+            String resultfor = null;
+            public void onClick(View v) {
+                switch(result.getCheckedRadioButtonId()){
+                    case R.id.fGSS_Result_RadioButton_White: resultfor = "1-0"; break;
+                    case R.id.fGSS_Result_RadioButton_Black: resultfor = "0-1"; break;
+                    case R.id.fGSS_Result_RadioButton_Draw: resultfor = "1/2-1/2"; break;
+                }
+                DataProvider.INSTANCE.requestGameList(resultfor,min.getText().toString(),
+                        max.getText().toString(),w1.getText().toString(),w2.getText().toString(),
+                        w3.getText().toString(),b1.getText().toString(),b2.getText().toString(),
+                        b3.getText().toString(),eco.getText().toString());
+            }
+        });
+        return view;
     }
 
     @Override
@@ -70,8 +100,11 @@ public class GameSearchScreen extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
+        enum GameSearchScreenOptions{
+            GAMESEARCHRESULTLIST
+        }
 
-        public void onFragmentInteraction(Uri uri);
+        public void fromGameSearchScreenTo(GameSearchScreenOptions option, String playerLastname);
     }
 
 }

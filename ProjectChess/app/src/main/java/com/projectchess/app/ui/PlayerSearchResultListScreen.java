@@ -35,17 +35,12 @@ import java.util.List;
  */
 public class PlayerSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
-    public static List<Player> listOfPlayers;
+    public static List<Player> listOfPlayers = new ArrayList<Player>();
 
     public static PlayerSearchResultListScreen newInstance(String playerLastName) {
         PlayerSearchResultListScreen fragment = new PlayerSearchResultListScreen();
         //TODO not working yet
         //listOfPlayers = DataProvider.INSTANCE.requestPlayerList(playerLastName);
-        List<Player> testplayers = new ArrayList<Player>();
-        testplayers.add(new Player("1","testcase1","lastName1"));
-        testplayers.add(new Player("2","testcase2","lastName2"));
-        testplayers.add(new Player("3","testcase3","lastName3"));
-        listOfPlayers = testplayers;
         return fragment;
     }
 
@@ -56,19 +51,18 @@ public class PlayerSearchResultListScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        listOfPlayers.add(new Player("1","testcase1","lastName1"));
+        listOfPlayers.add(new Player("2","testcase2","lastName2"));
+        listOfPlayers.add(new Player("3","testcase3","lastName3"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_player_search_result_list_screen,container,false);
-        Log.i("playersearchresultlistscreen","View");
-        ListView listView = (ListView) view.findViewById(R.id.FPSR_player_search_result_listView);
-        Log.i("playersearchresultlistscreen","ListView");
-        PlayerArrayAdapter adapter = new PlayerArrayAdapter(view.getContext(), listOfPlayers);
-        Log.i("playersearchresultlistscreen","Adapter");
+        final ListView listView = (ListView) view.findViewById(R.id.FPSR_player_search_result_listView);
+        final PlayerArrayAdapter adapter = new PlayerArrayAdapter(view.getContext(), listOfPlayers);
         listView.setAdapter(adapter);
-        Log.i("playersearchresultlistscreen","SetAdapter");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,7 +70,6 @@ public class PlayerSearchResultListScreen extends Fragment {
 
             }
         });
-        Log.i("playersearchresultlistscreen","setonclicklistener");
         return view;
     }
 
@@ -135,10 +128,9 @@ public class PlayerSearchResultListScreen extends Fragment {
 
             Player temp = playerList.get(position);
             name.setText(temp.getFirstname()+" "+temp.getLastname());
-            //TODO change when implemented
-            rating.setText("1111/PH");
-            numberofgames.setText("123/PH");
-            return convertView;
+            rating.setText(temp.getRating());
+            numberofgames.setText(temp.getNumberofgames());
+            return rowView;
         }
     }
 }

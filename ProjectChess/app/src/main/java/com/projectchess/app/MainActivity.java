@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.projectchess.app.data.Player;
+import com.projectchess.app.ui.GameSearchResultListScreen;
 import com.projectchess.app.ui.GameSearchScreen;
 import com.projectchess.app.ui.PlayerProfileScreen;
 import com.projectchess.app.ui.PlayerSearchResultListScreen;
@@ -16,7 +17,8 @@ import com.projectchess.app.ui.StartScreen;
 public class MainActivity extends FragmentActivity
         implements StartScreen.OnFragmentInteractionListener,
         PlayerSearchScreen.OnFragmentInteractionListener,
-        PlayerSearchResultListScreen.OnFragmentInteractionListener{
+        PlayerSearchResultListScreen.OnFragmentInteractionListener,
+        GameSearchScreen.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +68,13 @@ public class MainActivity extends FragmentActivity
 
     public void fromPlayerSearchResultListTo(PlayerSearchResultListScreenOptions options, Player player){
         if(options == PlayerSearchResultListScreenOptions.PLAYERPROFILESCREEN) getFragmentManager()
-                .beginTransaction().replace(R.id.container, PlayerProfileScreen.newInstance("1","1"))
+                .beginTransaction().replace(R.id.container, PlayerProfileScreen.newInstance(player))
                 .addToBackStack(null)
                 .commit();
+    }
+
+    public void fromGameSearchScreenTo(GameSearchScreenOptions options, String playerlastname){
+        if(options == GameSearchScreenOptions.GAMESEARCHRESULTLIST) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance())
     }
 }

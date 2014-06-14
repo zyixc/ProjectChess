@@ -102,7 +102,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#008080"
             android:text="@string/player_profile_screen_player_white_opening_first_move"
-            android:id="@+id/textView8"
+            android:id="@+id/FPPS_player_profile_pref_w1"
             android:layout_below="@+id/textView12"
             android:layout_alignRight="@+id/textView2"
             android:layout_alignEnd="@+id/textView2" />
@@ -113,8 +113,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#008080"
             android:text="@string/player_profile_screen_player_white_opening_second_move"
-            android:id="@+id/textView9"
-            android:layout_alignTop="@+id/textView8"
+            android:id="@+id/FPPS_player_profile_pref_w2"
+            android:layout_alignTop="@+id/FPPS_player_profile_pref_w1"
             android:layout_alignLeft="@+id/textView11"
             android:layout_alignStart="@+id/textView11" />
 
@@ -124,8 +124,8 @@
             android:textColor="#008080"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/player_profile_screen_player_white_opening_third_move"
-            android:id="@+id/textView10"
-            android:layout_alignTop="@+id/textView9"
+            android:id="@+id/FPPS_player_profile_pref_w3"
+            android:layout_alignTop="@+id/FPPS_player_profile_pref_w2"
             android:layout_alignRight="@+id/FPPS_player_profile_name_textView"
             android:layout_alignEnd="@+id/FPPS_player_profile_name_textView" />
 
@@ -145,8 +145,8 @@
             android:text="@string/player_profile_screen_player_white_opening_first"
             android:id="@+id/textView12"
             android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8" />
+            android:layout_alignLeft="@+id/FPPS_player_profile_pref_w1"
+            android:layout_alignStart="@+id/FPPS_player_profile_pref_w1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
             android:text="@string/player_profile_screen_player_white_opening_third"
             android:id="@+id/textView13"
             android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/textView10"
-            android:layout_alignStart="@+id/textView10" />
+            android:layout_alignLeft="@+id/FPPS_player_profile_pref_w3"
+            android:layout_alignStart="@+id/FPPS_player_profile_pref_w3" />
     </RelativeLayout>
 </FrameLayout>

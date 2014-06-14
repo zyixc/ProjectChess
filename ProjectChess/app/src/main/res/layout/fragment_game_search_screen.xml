@@ -19,26 +19,36 @@
             android:id="@+id/fGSS_Result_TextView"
             android:layout_gravity="left|top" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_search_screen_result_white"
-            android:id="@+id/fGSS_Result_RadioButton_White"
-            android:layout_gravity="center_horizontal|top" />
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:id="@+id/fGSS_Result_RadioGroup">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_search_screen_result_black"
-            android:id="@+id/fGSS_Result_RadioButton_Black"
-            android:layout_gravity="center" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_search_screen_result_white"
+                android:id="@+id/fGSS_Result_RadioButton_White"
+                android:layout_gravity="center_horizontal|top"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_search_screen_result_draw"
-            android:id="@+id/fGSS_Result_RadioButton_Draw"
-            android:layout_gravity="center_horizontal|bottom" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_search_screen_result_black"
+                android:id="@+id/fGSS_Result_RadioButton_Black"
+                android:layout_gravity="center"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_search_screen_result_draw"
+                android:id="@+id/fGSS_Result_RadioButton_Draw"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+        </RadioGroup>
     </FrameLayout>
 
     <FrameLayout
@@ -52,7 +62,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_rating"
-            android:id="@+id/fGGS_Rating_TextView"
+            android:id="@+id/fGSS_Rating_TextView"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -60,7 +70,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_rating_min"
-            android:id="@+id/fGGS_Rating_TextView_Min"
+            android:id="@+id/fGSS_Rating_TextView_Min"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -68,7 +78,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_rating_max"
-            android:id="@+id/fGGS_Rating_TextView_Max"
+            android:id="@+id/fGSS_Rating_TextView_Max"
             android:layout_gravity="center" />
 
         <EditText
@@ -76,7 +86,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="4"
-            android:id="@+id/fGGS_Rating_EditText_Min"
+            android:id="@+id/fGSS_Rating_EditText_Min"
             android:layout_gravity="right|top" />
 
         <EditText
@@ -84,7 +94,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="4"
-            android:id="@+id/fGGS_Rating_EditText_Max"
+            android:id="@+id/fGSS_Rating_EditText_Max"
             android:layout_gravity="right|center_vertical" />
     </FrameLayout>
 
@@ -99,7 +109,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_whiteopening"
-            android:id="@+id/fGGS_WhiteOpening_TextView"
+            android:id="@+id/fGSS_WhiteOpening_TextView"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -107,7 +117,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_whiteopening_1st"
-            android:id="@+id/fGGS_WhiteOpening_TextView_1st"
+            android:id="@+id/fGSS_WhiteOpening_TextView_1st"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -115,7 +125,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_whiteopening_2nd"
-            android:id="@+id/fGGS_WhiteOpening_TextView_2nd"
+            android:id="@+id/fGSS_WhiteOpening_TextView_2nd"
             android:layout_gravity="center" />
 
         <TextView
@@ -123,13 +133,13 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_whiteopening_3rd"
-            android:id="@+id/fGGS_WhiteOpening_TextView_3rd"
+            android:id="@+id/fGSS_WhiteOpening_TextView_3rd"
             android:layout_gravity="center_horizontal|bottom" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_WhiteOpening_EditText_1st"
+            android:id="@+id/fGSS_WhiteOpening_EditText_1st"
             android:layout_gravity="right|top"
             android:inputType="textNoSuggestions"
             android:ems="5"
@@ -138,7 +148,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_WhiteOpening_EditText_2nd"
+            android:id="@+id/fGSS_WhiteOpening_EditText_2nd"
             android:layout_gravity="right|center_vertical"
             android:ems="5"
             android:inputType="textNoSuggestions" />
@@ -146,7 +156,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_WhiteOpening_EditText_3rd"
+            android:id="@+id/fGSS_WhiteOpening_EditText_3rd"
             android:layout_gravity="right|bottom"
             android:ems="5"
             android:inputType="textNoSuggestions" />
@@ -163,7 +173,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_blackopening"
-            android:id="@+id/fGGS_BlackOpening_TextView"
+            android:id="@+id/fGSS_BlackOpening_TextView"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -171,7 +181,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_blackopening_1st"
-            android:id="@+id/fGGS_BlackOpening_TextView_1st"
+            android:id="@+id/fGSS_BlackOpening_TextView_1st"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -179,7 +189,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_blackopening_2nd"
-            android:id="@+id/fGGS_BlackOpening_TextView_2nd"
+            android:id="@+id/fGSS_BlackOpening_TextView_2nd"
             android:layout_gravity="center" />
 
         <TextView
@@ -187,13 +197,13 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_blackopening_3rd"
-            android:id="@+id/fGGS_BlackOpening_TextView_rd"
+            android:id="@+id/fGSS_BlackOpening_TextView_rd"
             android:layout_gravity="center_horizontal|bottom" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_Black_Opening_EditText_1st"
+            android:id="@+id/fGSS_BlackOpening_EditText_1st"
             android:layout_gravity="right|top"
             android:ems="5"
             android:inputType="textNoSuggestions" />
@@ -201,7 +211,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_Black_Opening_EditText_2nd"
+            android:id="@+id/fGSS_BlackOpening_EditText_2nd"
             android:layout_gravity="right|center_vertical"
             android:ems="5"
             android:inputType="textNoSuggestions" />
@@ -209,7 +219,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_Black_Opening_EditText_3rd"
+            android:id="@+id/fGSS_BlackOpening_EditText_3rd"
             android:layout_gravity="right|bottom"
             android:ems="5"
             android:inputType="textNoSuggestions" />
@@ -226,15 +236,22 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/game_search_screen_eco"
-            android:id="@+id/fGGS_Eco_TextView"
+            android:id="@+id/fGSS_Eco_TextView"
             android:layout_gravity="left|top" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fGGS_Eco_EditText"
+            android:id="@+id/fGSS_Eco_EditText"
             android:layout_gravity="center"
             android:ems="3"
             android:inputType="textNoSuggestions" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:text="@string/game_search_screen_button_search"
+            android:id="@+id/fGSS_Search_Button"
+            android:layout_gravity="right|center_vertical" />
     </FrameLayout>
 </LinearLayout>
