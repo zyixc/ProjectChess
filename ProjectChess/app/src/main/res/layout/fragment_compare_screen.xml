@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/customborder"
-        android:layout_weight="0.30">
+        android:layout_weight="0.3">
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,30 +20,36 @@
             android:id="@+id/FCS_result_view"
             android:layout_gravity="left|top" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/compare_screen_result_black"
-            android:id="@+id/FCS_result_black_radioButton"
-            android:layout_gravity="center_horizontal|bottom"
-            android:checked="false" />
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|top">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/compare_screen_result_white"
-            android:id="@+id/FCS_result_white_radioButton"
-            android:layout_gravity="center_horizontal|top"
-            android:singleLine="true"
-            android:checked="false" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compare_screen_result_black"
+                android:id="@+id/FCS_result_black_radioButton"
+                android:layout_gravity="center_horizontal|bottom"
+                android:checked="false" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/compare_screen_result_draw"
-            android:id="@+id/FCS_result_draw_radioButton"
-            android:layout_gravity="center"
-            android:checked="false" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compare_screen_result_white"
+                android:id="@+id/FCS_result_white_radioButton"
+                android:layout_gravity="center_horizontal|top"
+                android:singleLine="true"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compare_screen_result_draw"
+                android:id="@+id/FCS_result_draw_radioButton"
+                android:layout_gravity="center"
+                android:checked="false" />
+        </RadioGroup>
     </FrameLayout>
 
     <FrameLayout
@@ -92,34 +98,6 @@
             android:id="@+id/FCS_rating_min_editText"
             android:layout_gravity="right|center_vertical" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/compare_screen_rating_checkedbox_at_least_one"
-            android:id="@+id/checkBox"
-            android:layout_gravity="center_horizontal|bottom"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="111dp"
-            android:layout_height="wrap_content"
-            android:text="@string/compare_screen_rating_checkedbox_both"
-            android:id="@+id/checkBox2"
-            android:layout_gravity="right|bottom"
-            android:checked="false" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.30">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/FGPS_white_player"
-            android:layout_gravity="left|top" />
     </FrameLayout>
 
     <Button

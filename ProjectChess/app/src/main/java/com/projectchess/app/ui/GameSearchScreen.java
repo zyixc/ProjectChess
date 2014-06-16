@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.projectchess.app.R;
 import com.projectchess.app.data.DataProvider;
+import com.projectchess.app.data.Game;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,19 +65,30 @@ public class GameSearchScreen extends Fragment {
         search.setOnClickListener(new View.OnClickListener() {
             String resultfor = null;
             public void onClick(View v) {
-                prbar.setVisibility(View.VISIBLE);
-                prbar.setProgress(1);
-                switch(result.getCheckedRadioButtonId()){
-                    case R.id.fGSS_Result_RadioButton_White: resultfor = "1-0"; break;
-                    case R.id.fGSS_Result_RadioButton_Black: resultfor = "0-1"; break;
-                    case R.id.fGSS_Result_RadioButton_Draw: resultfor = "1/2-1/2"; break;
+                if(DataProvider.INSTANCE.testConnection()){
+                    prbar.setVisibility(View.VISIBLE);
+                    prbar.setProgress(1);
+                    switch (result.getCheckedRadioButtonId()) {
+                        case R.id.fGSS_Result_RadioButton_White:
+                            resultfor = "1-0";
+                            break;
+                        case R.id.fGSS_Result_RadioButton_Black:
+                            resultfor = "0-1";
+                            break;
+                        case R.id.fGSS_Result_RadioButton_Draw:
+                            resultfor = "1/2-1/2";
+                            break;
+                    }
+                    prbar.setProgress(2);
+                    List<Game> games = DataProvider.INSTANCE.requestGameList(resultfor, min.getText().toString(),
+                            max.getText().toString(), w1.getText().toString(), w2.getText().toString(),
+                            w3.getText().toString(), b1.getText().toString(), b2.getText().toString(),
+                            b3.getText().toString(), eco.getText().toString());
+                    prbar.setProgress(3);
+                    mListener.fromGameSearchScreenTo(OnFragmentInteractionListener.GameSearchScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+                }else{
+                    Toast.makeText(view.getContext(),"Connection failed",Toast.LENGTH_SHORT).show();
                 }
-                prbar.setProgress(2);
-                DataProvider.INSTANCE.requestGameList(resultfor,min.getText().toString(),
-                        max.getText().toString(),w1.getText().toString(),w2.getText().toString(),
-                        w3.getText().toString(),b1.getText().toString(),b2.getText().toString(),
-                        b3.getText().toString(),eco.getText().toString());
-                prbar.setProgress(3);
             }
         });
         return view;
@@ -109,10 +123,10 @@ public class GameSearchScreen extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         enum GameSearchScreenOptions{
-            GAMESEARCHRESULTLIST
+            GAMESEARCHRESULTLISTSCREEN
         }
 
-        public void fromGameSearchScreenTo(GameSearchScreenOptions option, String playerLastname);
+        public void fromGameSearchScreenTo(GameSearchScreenOptions option, List<Game> games);
     }
 
 }

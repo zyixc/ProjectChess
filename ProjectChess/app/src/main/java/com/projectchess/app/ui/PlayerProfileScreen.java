@@ -10,7 +10,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.Game;
 import com.projectchess.app.data.Player;
+
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,13 +46,13 @@ public class PlayerProfileScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_player_profile_screen, container, false);
-        TextView name = (TextView) view.findViewById(R.id.FPPS_player_profile_name_textView);
-        TextView rating = (TextView) view.findViewById(R.id.FPPS_player_profile_rating_textView);
-        TextView numberofgames = (TextView) view.findViewById(R.id.FPPS_player_profile_number_of_games_textView);
-        TextView prefw1 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w1);
-        TextView prefw2 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w2);
-        TextView prefw3 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w3);
+        final View view = inflater.inflate(R.layout.fragment_player_profile_screen, container, false);
+        final TextView name = (TextView) view.findViewById(R.id.FPPS_player_profile_name_textView);
+        final TextView rating = (TextView) view.findViewById(R.id.FPPS_player_profile_rating_textView);
+        final TextView numberofgames = (TextView) view.findViewById(R.id.FPPS_player_profile_number_of_games_textView);
+        final TextView prefw1 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w1);
+        final TextView prefw2 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w2);
+        final TextView prefw3 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w3);
 
         name.setText(player.getFirstname()+" "+player.getLastname());
         rating.setText(player.getRating());
@@ -56,6 +60,53 @@ public class PlayerProfileScreen extends Fragment {
         prefw1.setText(player.getW1());
         prefw2.setText(player.getW2());
         prefw3.setText(player.getW3());
+
+        numberofgames.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view){
+                List<Game> games = player.getWhite_games();
+                games.addAll(player.getBlack_games());
+                mListener.fromPlayerProfileScreenTo(OnFragmentInteractionListener.PlayerProfileScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+            }
+        });
+        prefw1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                List<Game> games = player.getWhite_games();
+                ListIterator<Game> iter = games.listIterator();
+                String w = player.getW1();
+                while(iter.hasNext()){
+                    if(iter.next().getW()[0].equals(w)){
+                        iter.remove();
+                    }
+                }
+                mListener.fromPlayerProfileScreenTo(OnFragmentInteractionListener.PlayerProfileScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+            }
+        });
+        prefw2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                List<Game> games = player.getWhite_games();
+                ListIterator<Game> iter = games.listIterator();
+                String w = player.getW2();
+                while(iter.hasNext()){
+                    if(iter.next().getW()[1].equals(w)){
+                        iter.remove();
+                    }
+                }
+                mListener.fromPlayerProfileScreenTo(OnFragmentInteractionListener.PlayerProfileScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+            }
+        });
+        prefw3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                List<Game> games = player.getWhite_games();
+                ListIterator<Game> iter = games.listIterator();
+                String w = player.getW3();
+                while(iter.hasNext()){
+                    if(iter.next().getW()[2].equals(w)){
+                        iter.remove();
+                    }
+                }
+                mListener.fromPlayerProfileScreenTo(OnFragmentInteractionListener.PlayerProfileScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+            }
+        });
         return view;
     }
 
@@ -88,9 +139,9 @@ public class PlayerProfileScreen extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         enum PlayerProfileScreenOptions{
-            GAMESEARCHRESULTSCREEN;
+            GAMESEARCHRESULTLISTSCREEN
         }
-        public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions option); //TODO
+        public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions option, List<Game> games);
     }
 
 }

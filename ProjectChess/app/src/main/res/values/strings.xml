@@ -51,9 +51,7 @@
     <string name="player_profile_screen_player_number_of_game">Number of games:</string>
     <string name="player_profile_screen_player_number_of_game_textView">23</string>
     <string name="player_profile_screen_player_white_opening">White opening pref.:</string>
-    <string name="player_profile_screen_player_white_opening_first">O</string>
-    <string name="player_profile_screen_player_white_opening_second">O</string>
-    <string name="player_profile_screen_player_white_opening_third">0</string>
+    <string name="player_profile_screen_player_white_opening_symbol">#</string>
     <string name="player_profile_screen_player_white_opening_first_move">E34</string>
     <string name="player_profile_screen_player_white_opening_second_move">E56</string>
     <string name="player_profile_screen_player_white_opening_third_move">E45</string>
@@ -63,19 +61,6 @@
     <!--Game Detail screen-->
     <string name="game_detail_screen_player_black">Black:</string>
     <string name="game_detail_screen_player_white">White:</string>
-    <string name="game_detail_screen_player_black_name">Result:</string>
-    <string name="game_detail_screen_player_white_name">Result:</string>
-    <string name="game_detail_screen_player_move">Move:</string>
-    <string name="game_detail_screen_player_move_out">Out</string>
-    <string name="game_detail_screen_player_game">Game:</string>
-    <string name="game_detail_screen_player_game_out">Out</string>
-    <string name="game_detail_screen_next_button"></string>
-    <string name="game_detail_screen_previous_button"></string>
     <string name="game_detail_screen_compare_button">Compare</string>
     <string name="game_detail_screen_result">Result:</string>
-    <string name="game_detail_screen_result_display">result</string>
-    <string name="game_detail_screen_player_move_out_one">100</string>
-    <string name="game_detail_screen_player_move_out_two">100</string>
-    <string name="game_detail_screen_player_game_out_one">100</string>
-    <string name="game_detail_screen_player_game_out_two">100</string>
 </resources>

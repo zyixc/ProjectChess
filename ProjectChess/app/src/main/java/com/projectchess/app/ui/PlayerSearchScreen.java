@@ -12,6 +12,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.DataProvider;
+import com.projectchess.app.data.Game;
+import com.projectchess.app.data.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,14 +50,36 @@ public class PlayerSearchScreen extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_player_search_screen,container,false);
         final EditText lastName = (EditText) view.findViewById(R.id.FPSS_lastname_editText);
         Button buttonPlayerSearch = (Button) view.findViewById(R.id.FPSS_search_button);
+
         buttonPlayerSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(!lastName.getText().toString().equals("")){
-                    mListener.fromPlayerSearchScreenTo(OnFragmentInteractionListener
-                        .PlayerSearchScreenOptions.PLAYERSEARCHRESULTLIST, lastName.getText().toString());
-                }else{
-                    Toast.makeText(view.getContext(),"Enter a Name",Toast.LENGTH_SHORT).show();
-                }
+//                if(DataProvider.INSTANCE.testConnection()){
+//                    if(!lastName.getText().toString().equals("")){
+//                        mListener.fromPlayerSearchScreenTo(OnFragmentInteractionListener
+//                            .PlayerSearchScreenOptions.PLAYERSEARCHRESULTLISTSCREEN,
+//                               DataProvider.INSTANCE.requestPlayerList(lastName.getText().toString()));
+//                    }else{
+//                        Toast.makeText(view.getContext(),"Enter a Name",Toast.LENGTH_SHORT).show();
+//                    }
+//                }else{
+//                    Toast.makeText(view.getContext(),"Connection failed",Toast.LENGTH_SHORT).show();
+//                } TODO remove for final testing
+                List<Player> players = new ArrayList<Player>();
+                Game testgame1 = new Game("1","1","1","1",1,"1","1","1",1,1,"1","1",null,null);
+                Game testgame2 = new Game("2","2","2","2",2,"2","2","2",2,2,"2","2",null,null);
+                Player testplayer1 = new Player("1","Paul","Simon");
+                testplayer1.setNumberofgames("2");
+                testplayer1.setRating("2111");
+                testplayer1.addWhite_games(testgame1);
+                testplayer1.addBlack_games(testgame2);
+                Player testplayer2 = new Player("2","Art","Garfunkel");
+                testplayer2.setNumberofgames("2");
+                testplayer2.setRating("2111");
+                testplayer2.addWhite_games(testgame1);
+                testplayer2.addBlack_games(testgame2);
+                players.add(testplayer1);
+                players.add(testplayer2);
+                mListener.fromPlayerSearchScreenTo(OnFragmentInteractionListener.PlayerSearchScreenOptions.PLAYERSEARCHRESULTLISTSCREEN, players);
             }
         });
         return view;
@@ -86,10 +114,10 @@ public class PlayerSearchScreen extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         enum PlayerSearchScreenOptions{
-            PLAYERSEARCHRESULTLIST
+            PLAYERSEARCHRESULTLISTSCREEN
         }
 
-        public void fromPlayerSearchScreenTo(PlayerSearchScreenOptions option, String playerLastname);
+        public void fromPlayerSearchScreenTo(PlayerSearchScreenOptions option, List<Player> playerList);
     }
 
 }

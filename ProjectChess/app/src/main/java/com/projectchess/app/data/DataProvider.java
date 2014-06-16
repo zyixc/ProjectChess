@@ -26,17 +26,17 @@ public enum DataProvider {
     private static BufferedReader in;
 
 
-    private void openConnection(){
+    private boolean openConnection(){
         try{
             socket = new Socket(hostname,port);
             is = socket.getInputStream();
             os = socket.getOutputStream();
             in = new BufferedReader(new InputStreamReader(is));
-            Log.i("connection","succesfull");
+            return true;
         }catch(Exception e){
             e.printStackTrace();
-            Log.i("connection","unsuccesfull");
         }
+        return false;
     }
 
     private void closeConnection(){
@@ -48,6 +48,13 @@ public enum DataProvider {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public boolean testConnection(){
+        if(openConnection()){
+            closeConnection();
+            return true;
+        }return false;
     }
 
     public Player requestPlayer(String id){
@@ -62,7 +69,7 @@ public enum DataProvider {
                 return player;
             }
         }catch(Exception e){
-
+            e.printStackTrace();
         }
         return null;
     }

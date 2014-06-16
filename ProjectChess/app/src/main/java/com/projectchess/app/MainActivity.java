@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.projectchess.app.data.Game;
 import com.projectchess.app.data.Player;
+import com.projectchess.app.ui.GameProfileScreen;
 import com.projectchess.app.ui.GameSearchResultListScreen;
 import com.projectchess.app.ui.GameSearchScreen;
 import com.projectchess.app.ui.PlayerProfileScreen;
@@ -13,13 +15,16 @@ import com.projectchess.app.ui.PlayerSearchResultListScreen;
 import com.projectchess.app.ui.PlayerSearchScreen;
 import com.projectchess.app.ui.StartScreen;
 
+import java.util.List;
+
 
 public class MainActivity extends FragmentActivity
         implements StartScreen.OnFragmentInteractionListener,
         PlayerSearchScreen.OnFragmentInteractionListener,
         PlayerSearchResultListScreen.OnFragmentInteractionListener,
-        PlayerProfileScreen.OnFragmentInteractionListener{
-        //GameSearchScreen.OnFragmentInteractionListener{
+        PlayerProfileScreen.OnFragmentInteractionListener,
+        GameSearchScreen.OnFragmentInteractionListener,
+        GameSearchResultListScreen.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +65,9 @@ public class MainActivity extends FragmentActivity
                 .commit();
     }
 
-    public void fromPlayerSearchScreenTo(PlayerSearchScreenOptions options, String playerlastname){
-        if(options == PlayerSearchScreenOptions.PLAYERSEARCHRESULTLIST) getFragmentManager()
-                .beginTransaction().replace(R.id.container, PlayerSearchResultListScreen.newInstance(playerlastname))
+    public void fromPlayerSearchScreenTo(PlayerSearchScreenOptions options, List<Player> players){
+        if(options == PlayerSearchScreenOptions.PLAYERSEARCHRESULTLISTSCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, PlayerSearchResultListScreen.newInstance(players))
                 .addToBackStack(null)
                 .commit();
     }
@@ -74,15 +79,24 @@ public class MainActivity extends FragmentActivity
                 .commit();
     }
 
-    public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions options){
-        if(options == PlayerProfileScreenOptions.GAMESEARCHRESULTSCREEN) getFragmentManager()
-                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance("1","2"))
+    public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions options, List<Game> games){
+        if(options == PlayerProfileScreenOptions.GAMESEARCHRESULTLISTSCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance(games))
                 .addToBackStack(null)
                 .commit();
     }
 
-//    public void fromGameSearchScreenTo(GameSearchScreenOptions options, String playerlastname){
-//        if(options == GameSearchScreenOptions.GAMESEARCHRESULTLIST) getFragmentManager()
-//                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance())
-//    }
+    public void fromGameSearchScreenTo(GameSearchScreenOptions options, List<Game> games){
+        if(options == GameSearchScreenOptions.GAMESEARCHRESULTLISTSCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance(games))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void fromGameSearchResultListTo(GameSearchResultListScreenOptions options, Game game){
+        if(options == GameSearchResultListScreenOptions.GAMEPROFILESCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameProfileScreen.newInstance("1","2"))
+                .addToBackStack(null)
+                .commit();
+    }
 }

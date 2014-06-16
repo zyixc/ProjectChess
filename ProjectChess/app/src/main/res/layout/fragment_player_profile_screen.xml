@@ -19,14 +19,15 @@
 
         android:layout_width="match_parent"
         android:layout_height="324dp"
-        android:layout_gravity="left|bottom">
+        android:layout_gravity="left|bottom"
+        android:background="@drawable/customborder">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/player_profile_screen_player_name"
-            android:id="@+id/textView"
+            android:id="@+id/fGSRLSR_nameBlack_TextView"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -36,21 +37,21 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/player_profile_screen_player_rating"
-            android:id="@+id/textView2"
+            android:id="@+id/fGSRLSR_ratingBlack_TextView"
             android:layout_marginTop="25dp"
-            android:layout_below="@+id/textView"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView" />
+            android:layout_below="@+id/fGSRLSR_nameBlack_TextView"
+            android:layout_alignLeft="@+id/fGSRLSR_nameBlack_TextView"
+            android:layout_alignStart="@+id/fGSRLSR_nameBlack_TextView" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/player_profile_screen_player_number_of_game"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/textView2"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
+            android:id="@+id/fGSRLSR_ratingWhite_TextView"
+            android:layout_below="@+id/fGSRLSR_ratingBlack_TextView"
+            android:layout_alignLeft="@+id/fGSRLSR_ratingBlack_TextView"
+            android:layout_alignStart="@+id/fGSRLSR_ratingBlack_TextView"
             android:layout_marginTop="26dp" />
 
         <TextView
@@ -58,10 +59,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/player_profile_screen_player_white_opening"
-            android:id="@+id/textView4"
-            android:layout_below="@+id/textView3"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
+            android:id="@+id/fGSRLSR_nameWhite_TextView"
+            android:layout_below="@+id/fGSRLSR_ratingWhite_TextView"
+            android:layout_alignLeft="@+id/fGSRLSR_ratingWhite_TextView"
+            android:layout_alignStart="@+id/fGSRLSR_ratingWhite_TextView"
             android:layout_marginTop="29dp" />
 
         <TextView
@@ -69,9 +70,8 @@
             android:layout_height="wrap_content"
             android:textColor="#008080"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/player_profile_screen_player_name_textView"
             android:id="@+id/FPPS_player_profile_name_textView"
-            android:layout_alignTop="@+id/textView"
+            android:layout_alignTop="@+id/fGSRLSR_nameBlack_TextView"
             android:layout_alignLeft="@+id/FPPS_player_profile_rating_textView"
             android:layout_alignStart="@+id/FPPS_player_profile_rating_textView" />
 
@@ -80,9 +80,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#008080"
-            android:text="@string/player_profile_screen_player_rating_textView"
             android:id="@+id/FPPS_player_profile_rating_textView"
-            android:layout_above="@+id/textView3"
+            android:layout_above="@+id/fGSRLSR_ratingWhite_TextView"
             android:layout_alignLeft="@+id/FPPS_player_profile_number_of_games_textView"
             android:layout_alignStart="@+id/FPPS_player_profile_number_of_games_textView" />
 
@@ -91,70 +90,48 @@
             android:layout_height="wrap_content"
             android:textColor="#008080"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/player_profile_screen_player_number_of_game_textView"
             android:id="@+id/FPPS_player_profile_number_of_games_textView"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_toRightOf="@+id/textView4" />
+            android:layout_alignTop="@+id/fGSRLSR_ratingWhite_TextView"
+            android:layout_toRightOf="@+id/fGSRLSR_nameWhite_TextView" />
 
         <TextView
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#008080"
-            android:text="@string/player_profile_screen_player_white_opening_first_move"
             android:id="@+id/FPPS_player_profile_pref_w1"
-            android:layout_below="@+id/textView12"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_alignEnd="@+id/textView2" />
-
-        <TextView
-            android:layout_width="60sp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#008080"
-            android:text="@string/player_profile_screen_player_white_opening_second_move"
-            android:id="@+id/FPPS_player_profile_pref_w2"
-            android:layout_alignTop="@+id/FPPS_player_profile_pref_w1"
-            android:layout_alignLeft="@+id/textView11"
-            android:layout_alignStart="@+id/textView11" />
-
-        <TextView
-            android:layout_width="60sp"
-            android:layout_height="wrap_content"
-            android:textColor="#008080"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/player_profile_screen_player_white_opening_third_move"
-            android:id="@+id/FPPS_player_profile_pref_w3"
+            android:layout_gravity="left|center_vertical"
+            android:background="@drawable/customborder"
             android:layout_alignTop="@+id/FPPS_player_profile_pref_w2"
-            android:layout_alignRight="@+id/FPPS_player_profile_name_textView"
-            android:layout_alignEnd="@+id/FPPS_player_profile_name_textView" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="36dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="60sp"
             android:layout_height="wrap_content"
-            android:text="@string/player_profile_screen_player_white_opening_second"
-            android:id="@+id/textView11"
-            android:layout_marginTop="29dp"
-            android:layout_below="@+id/textView4"
-            android:layout_alignRight="@+id/textView3"
-            android:layout_alignEnd="@+id/textView3" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#008080"
+            android:id="@+id/FPPS_player_profile_pref_w2"
+            android:layout_gravity="center"
+            android:background="@drawable/customborder"
+            android:layout_alignTop="@+id/FPPS_player_profile_pref_w3"
+            android:layout_centerHorizontal="true" />
 
         <TextView
-            android:layout_width="40sp"
+            android:layout_width="60sp"
             android:layout_height="wrap_content"
-            android:text="@string/player_profile_screen_player_white_opening_first"
-            android:id="@+id/textView12"
-            android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/FPPS_player_profile_pref_w1"
-            android:layout_alignStart="@+id/FPPS_player_profile_pref_w1" />
+            android:textColor="#008080"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/FPPS_player_profile_pref_w3"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/customborder"
+            android:gravity="center"
+            android:layout_marginLeft="36dp"
+            android:layout_below="@+id/fGSRLSR_nameWhite_TextView"
+            android:layout_alignLeft="@+id/fGSRLSR_nameWhite_TextView"
+            android:layout_alignStart="@+id/fGSRLSR_nameWhite_TextView"
+            android:layout_marginTop="51dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/player_profile_screen_player_white_opening_third"
-            android:id="@+id/textView13"
-            android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/FPPS_player_profile_pref_w3"
-            android:layout_alignStart="@+id/FPPS_player_profile_pref_w3" />
     </RelativeLayout>
 </FrameLayout>

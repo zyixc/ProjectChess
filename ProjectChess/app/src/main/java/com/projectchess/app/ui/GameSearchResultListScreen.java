@@ -1,14 +1,23 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.net.Uri;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.DataProvider;
+import com.projectchess.app.data.Game;
+import com.projectchess.app.data.Player;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +30,11 @@ import com.projectchess.app.R;
  */
 public class GameSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
+    private static List<Game> listOfGames;
 
-
-    public static GameSearchResultListScreen newInstance(String param1, String param2) {
+    public static GameSearchResultListScreen newInstance(List<Game> linkedgames) {
         GameSearchResultListScreen fragment = new GameSearchResultListScreen();
+        listOfGames = linkedgames;
         return fragment;
     }
     public GameSearchResultListScreen() {
@@ -39,7 +49,19 @@ public class GameSearchResultListScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_game_search_result_list_screen, container, false);
+        final View view = inflater.inflate(R.layout.fragment_game_search_result_list_screen, container, false);
+        final ListView listView = (ListView) view.findViewById(R.id.FGSR_game_results_listView);
+        final GameArrayAdapter adapter = new GameArrayAdapter(view.getContext(), listOfGames);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent,final View view, int position, long id) {
+                Game game = (Game) listView.getAdapter().getItem(position);
+                mListener.fromGameSearchResultListTo(OnFragmentInteractionListener.GameSearchResultListScreenOptions.GAMEPROFILESCREEN, game);
+            }
+        });
+
         return view;
     }
 
@@ -74,7 +96,50 @@ public class GameSearchResultListScreen extends Fragment {
         enum GameSearchResultListScreenOptions{
             GAMEPROFILESCREEN
         }
-        public void onFragmentInteraction();
+        public void fromGameSearchResultListTo(GameSearchResultListScreenOptions options, Game game);
     }
 
+    private class GameArrayAdapter extends ArrayAdapter<Game> {
+        private final Context context;
+        private final List<Game> gamesList;
+
+        public GameArrayAdapter(Context context, List<Game> games) {
+            super(context, R.layout.fragment_game_search_result_list_row, games);
+            this.gamesList = games;
+            this.context = context;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent){
+            if(convertView == null){
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.fragment_game_search_result_list_row,parent,false);
+                ViewHolderItem viewHolder = new ViewHolderItem();
+                viewHolder.nameWhite = (TextView) convertView.findViewById(R.id.fGSRLSR_nameWhite_TextView);
+                viewHolder.ratingWhite = (TextView) convertView.findViewById(R.id.fGSRLSR_ratingWhite_TextView);
+                viewHolder.nameBlack = (TextView) convertView.findViewById(R.id.fGSRLSR_nameBlack_TextView);
+                viewHolder.ratingBlack = (TextView) convertView.findViewById(R.id.fGSRLSR_ratingBlack_TextView);
+                viewHolder.result = (TextView) convertView.findViewById(R.id.fGSRLSR_Result_TextView);
+
+                convertView.setTag(viewHolder);
+            }
+
+            ViewHolderItem viewHolder = (ViewHolderItem) convertView.getTag();
+            Game game = gamesList.get(position);
+            viewHolder.nameWhite.setText(game.getWhite());
+            viewHolder.ratingWhite.setText(game.getWhite_elo());
+            viewHolder.nameBlack.setText(game.getBlack());
+            viewHolder.ratingBlack.setText(game.getBlack_elo());
+            viewHolder.result.setText(game.getResult());
+            return convertView;
+        }
+    }
+
+    static class ViewHolderItem{
+        TextView nameWhite;
+        TextView ratingWhite;
+        TextView nameBlack;
+        TextView ratingBlack;
+        TextView result;
+    }
 }

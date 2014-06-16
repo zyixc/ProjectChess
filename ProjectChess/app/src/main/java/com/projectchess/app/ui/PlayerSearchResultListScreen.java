@@ -37,10 +37,9 @@ public class PlayerSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
     public static List<Player> listOfPlayers;
 
-    public static PlayerSearchResultListScreen newInstance(String playerLastName) {
+    public static PlayerSearchResultListScreen newInstance(List<Player> playerList) {
         PlayerSearchResultListScreen fragment = new PlayerSearchResultListScreen();
-        //TODO not working yet
-        //listOfPlayers = DataProvider.INSTANCE.requestPlayerList(playerLastName);
+        listOfPlayers = playerList;
         return fragment;
     }
 
@@ -51,10 +50,6 @@ public class PlayerSearchResultListScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        listOfPlayers = new ArrayList<Player>();
-        listOfPlayers.add(new Player("1","testcase1","lastName1"));
-        listOfPlayers.add(new Player("2","testcase2","lastName2"));
-        listOfPlayers.add(new Player("3","testcase3","lastName3"));
     }
 
     @Override
@@ -69,7 +64,6 @@ public class PlayerSearchResultListScreen extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 Player player = (Player) listView.getAdapter().getItem(position);
-
                 mListener.fromPlayerSearchResultListTo(OnFragmentInteractionListener.PlayerSearchResultListScreenOptions.PLAYERPROFILESCREEN, player);
             }
         });
@@ -121,19 +115,46 @@ public class PlayerSearchResultListScreen extends Fragment {
             this.context = context;
         }
 
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent){
+//            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            View rowView = inflater.inflate(R.layout.fragment_player_search_result_list_row, parent, false);
+//            TextView name = (TextView) rowView.findViewById(R.id.fPSSLR_Name_TextView);
+//            TextView rating = (TextView) rowView.findViewById(R.id.fPSSLR_Rating_TextView);
+//            TextView numberofgames = (TextView) rowView.findViewById(R.id.fPSSLR_NumberOfGames_TextView);
+//
+//            Player temp = playerList.get(position);
+//            name.setText(temp.getFirstname()+" "+temp.getLastname());
+//            rating.setText(temp.getRating());
+//            numberofgames.setText(temp.getNumberofgames());
+//            return rowView;
+//        }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent){
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rowView = inflater.inflate(R.layout.fragment_player_search_result_list_row, parent, false);
-            TextView name = (TextView) rowView.findViewById(R.id.fPSSLR_Name_TextView);
-            TextView rating = (TextView) rowView.findViewById(R.id.fPSSLR_Rating_TextView);
-            TextView numberofgames = (TextView) rowView.findViewById(R.id.fPSSLR_NumberOfGames_TextView);
+            if(convertView == null){
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.fragment_player_search_result_list_row,parent,false);
+                ViewHolderItem viewHolder = new ViewHolderItem();
+                viewHolder.name = (TextView) convertView.findViewById(R.id.fPSSLR_Name_TextView);
+                viewHolder.rating = (TextView) convertView.findViewById(R.id.fPSSLR_Rating_TextView);
+                viewHolder.numberofgames = (TextView) convertView.findViewById(R.id.fPSSLR_NumberOfGames_TextView);
 
-            Player temp = playerList.get(position);
-            name.setText(temp.getFirstname()+" "+temp.getLastname());
-            rating.setText(temp.getRating());
-            numberofgames.setText(temp.getNumberofgames());
-            return rowView;
+                convertView.setTag(viewHolder);
+            }
+
+            ViewHolderItem viewHolder = (ViewHolderItem) convertView.getTag();
+            Player player = playerList.get(position);
+            viewHolder.name.setText(player.getFirstname()+" "+player.getLastname());
+            viewHolder.rating.setText(player.getRating());
+            viewHolder.numberofgames.setText(player.getNumberofgames());
+            return convertView;
         }
+    }
+
+    static class ViewHolderItem{
+        TextView name;
+        TextView rating;
+        TextView numberofgames;
     }
 }

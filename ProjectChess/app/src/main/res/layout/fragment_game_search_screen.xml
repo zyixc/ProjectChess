@@ -254,11 +254,18 @@
             android:ems="3"
             android:inputType="textNoSuggestions" />
 
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.21">
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="67dp"
             android:text="@string/game_search_screen_button_search"
             android:id="@+id/fGSS_Search_Button"
-            android:layout_gravity="right|center_vertical" />
+            android:layout_gravity="center" />
     </FrameLayout>
 </LinearLayout>
