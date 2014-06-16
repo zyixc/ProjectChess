@@ -51,8 +51,8 @@ public class PlayerProfileScreen extends Fragment {
         TextView prefw3 = (TextView) view.findViewById(R.id.FPPS_player_profile_pref_w3);
 
         name.setText(player.getFirstname()+" "+player.getLastname());
-        rating.setText(player.getRating()); //TODO change when implemented
-        numberofgames.setText(player.getNumberofgames()); //TODO change when implemented
+        rating.setText(player.getRating());
+        numberofgames.setText(player.getNumberofgames());
         prefw1.setText(player.getW1());
         prefw2.setText(player.getW2());
         prefw3.setText(player.getW3());
@@ -88,9 +88,9 @@ public class PlayerProfileScreen extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         enum PlayerProfileScreenOptions{
-
+            GAMESEARCHRESULTSCREEN;
         }
-        public void onFragmentInteraction(Uri uri);
+        public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions option); //TODO
     }
 
 }

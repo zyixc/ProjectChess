@@ -18,7 +18,8 @@ public class MainActivity extends FragmentActivity
         implements StartScreen.OnFragmentInteractionListener,
         PlayerSearchScreen.OnFragmentInteractionListener,
         PlayerSearchResultListScreen.OnFragmentInteractionListener,
-        GameSearchScreen.OnFragmentInteractionListener{
+        PlayerProfileScreen.OnFragmentInteractionListener{
+        //GameSearchScreen.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,15 @@ public class MainActivity extends FragmentActivity
                 .commit();
     }
 
-    public void fromGameSearchScreenTo(GameSearchScreenOptions options, String playerlastname){
-        if(options == GameSearchScreenOptions.GAMESEARCHRESULTLIST) getFragmentManager()
-                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance())
+    public void fromPlayerProfileScreenTo(PlayerProfileScreenOptions options){
+        if(options == PlayerProfileScreenOptions.GAMESEARCHRESULTSCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance("1","2"))
+                .addToBackStack(null)
+                .commit();
     }
+
+//    public void fromGameSearchScreenTo(GameSearchScreenOptions options, String playerlastname){
+//        if(options == GameSearchScreenOptions.GAMESEARCHRESULTLIST) getFragmentManager()
+//                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance())
+//    }
 }

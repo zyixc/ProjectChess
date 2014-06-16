@@ -160,6 +160,13 @@
             android:layout_gravity="right|bottom"
             android:ems="5"
             android:inputType="textNoSuggestions" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="199dp"
+            android:layout_height="199dp"
+            android:id="@+id/fGSS_ProgressBar"
+            android:layout_gravity="center"/>
     </FrameLayout>
 
     <FrameLayout

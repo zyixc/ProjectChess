@@ -35,7 +35,7 @@ import java.util.List;
  */
 public class PlayerSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
-    public static List<Player> listOfPlayers = new ArrayList<Player>();
+    public static List<Player> listOfPlayers;
 
     public static PlayerSearchResultListScreen newInstance(String playerLastName) {
         PlayerSearchResultListScreen fragment = new PlayerSearchResultListScreen();
@@ -51,6 +51,7 @@ public class PlayerSearchResultListScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        listOfPlayers = new ArrayList<Player>();
         listOfPlayers.add(new Player("1","testcase1","lastName1"));
         listOfPlayers.add(new Player("2","testcase2","lastName2"));
         listOfPlayers.add(new Player("3","testcase3","lastName3"));
@@ -67,7 +68,9 @@ public class PlayerSearchResultListScreen extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                Player player = (Player) listView.getAdapter().getItem(position);
 
+                mListener.fromPlayerSearchResultListTo(OnFragmentInteractionListener.PlayerSearchResultListScreenOptions.PLAYERPROFILESCREEN, player);
             }
         });
         return view;

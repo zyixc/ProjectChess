@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -54,19 +55,26 @@ public class GameSearchScreen extends Fragment {
         final EditText b2 = (EditText) view.findViewById(R.id.fGSS_BlackOpening_EditText_2nd);
         final EditText b3 = (EditText) view.findViewById(R.id.fGSS_BlackOpening_EditText_3rd);
         final EditText eco = (EditText) view.findViewById(R.id.fGSS_Eco_EditText);
+        final ProgressBar prbar = (ProgressBar) view.findViewById(R.id.fGSS_ProgressBar);
+        prbar.setVisibility(View.INVISIBLE);
+        prbar.setMax(3);
         Button search = (Button) view.findViewById(R.id.fGSS_Search_Button);
         search.setOnClickListener(new View.OnClickListener() {
             String resultfor = null;
             public void onClick(View v) {
+                prbar.setVisibility(View.VISIBLE);
+                prbar.setProgress(1);
                 switch(result.getCheckedRadioButtonId()){
                     case R.id.fGSS_Result_RadioButton_White: resultfor = "1-0"; break;
                     case R.id.fGSS_Result_RadioButton_Black: resultfor = "0-1"; break;
                     case R.id.fGSS_Result_RadioButton_Draw: resultfor = "1/2-1/2"; break;
                 }
+                prbar.setProgress(2);
                 DataProvider.INSTANCE.requestGameList(resultfor,min.getText().toString(),
                         max.getText().toString(),w1.getText().toString(),w2.getText().toString(),
                         w3.getText().toString(),b1.getText().toString(),b2.getText().toString(),
                         b3.getText().toString(),eco.getText().toString());
+                prbar.setProgress(3);
             }
         });
         return view;
