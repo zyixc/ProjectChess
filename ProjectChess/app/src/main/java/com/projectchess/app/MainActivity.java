@@ -1,12 +1,16 @@
 package com.projectchess.app;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.projectchess.app.data.DataProvider;
 import com.projectchess.app.data.Game;
 import com.projectchess.app.data.Player;
+import com.projectchess.app.ui.CompareScreen;
 import com.projectchess.app.ui.GameProfileScreen;
 import com.projectchess.app.ui.GameSearchResultListScreen;
 import com.projectchess.app.ui.GameSearchScreen;
@@ -24,12 +28,18 @@ public class MainActivity extends FragmentActivity
         PlayerSearchResultListScreen.OnFragmentInteractionListener,
         PlayerProfileScreen.OnFragmentInteractionListener,
         GameSearchScreen.OnFragmentInteractionListener,
-        GameSearchResultListScreen.OnFragmentInteractionListener{
+        GameSearchResultListScreen.OnFragmentInteractionListener,
+        GameProfileScreen.OnFragmentInteractionListener,
+        CompareScreen.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //TODO TODO
+        SharedPreferences connectionDetails = this.getSharedPreferences("mypreferences",MODE_PRIVATE);
+        DataProvider.INSTANCE.setPreferences(connectionDetails.getString("ip",""),connectionDetails.getInt("port",0));
+
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction().add(R.id.container, StartScreen.newInstance()).commit();
         }
@@ -47,9 +57,21 @@ public class MainActivity extends FragmentActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                Intent i = new Intent(this, SettingsActivity.class);
+                startActivity(i);
+                break;
+            case R.id.action_player_search_screen: getFragmentManager()
+                    .beginTransaction().replace(R.id.container, PlayerSearchScreen.newInstance())
+                    .addToBackStack(null)
+                    .commit();
+                break;
+            case R.id.action_game_search_screen: getFragmentManager()
+                    .beginTransaction().replace(R.id.container, GameSearchScreen.newInstance())
+                    .addToBackStack(null)
+                    .commit();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -95,7 +117,21 @@ public class MainActivity extends FragmentActivity
 
     public void fromGameSearchResultListTo(GameSearchResultListScreenOptions options, Game game){
         if(options == GameSearchResultListScreenOptions.GAMEPROFILESCREEN) getFragmentManager()
-                .beginTransaction().replace(R.id.container, GameProfileScreen.newInstance("1","2"))
+                .beginTransaction().replace(R.id.container, GameProfileScreen.newInstance(game))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void fromGameProfileScreenTo(GameProfileScreenOptions options, Game game){
+        if(options == GameProfileScreenOptions.COMPARESCREEN) getFragmentManager()
+                .beginTransaction().replace(R.id.container, CompareScreen.newInstance(game))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void fromCompareScreenTo(CompareScreenOptions options, List<Game> games){
+        if(options == CompareScreenOptions.GAMESEARCHRESULTLIST) getFragmentManager()
+                .beginTransaction().replace(R.id.container, GameSearchResultListScreen.newInstance(games))
                 .addToBackStack(null)
                 .commit();
     }

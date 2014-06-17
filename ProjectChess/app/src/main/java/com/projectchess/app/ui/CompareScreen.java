@@ -7,8 +7,17 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.projectchess.app.R;
+import com.projectchess.app.data.DataProvider;
+import com.projectchess.app.data.Game;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,32 +29,12 @@ import com.projectchess.app.R;
  *
  */
 public class CompareScreen extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    private static Game game;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CompareScreen.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CompareScreen newInstance(String param1, String param2) {
+    public static CompareScreen newInstance(Game linkedgame) {
         CompareScreen fragment = new CompareScreen();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        game = linkedgame;
         return fragment;
     }
     public CompareScreen() {
@@ -55,24 +44,48 @@ public class CompareScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_compare_screen, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        final View view = inflater.inflate(R.layout.fragment_compare_screen, container, false);
+        final TextView min = (TextView) view.findViewById(R.id.FCS_rating_min_editText);
+        final TextView max = (TextView) view.findViewById(R.id.FCS_rating_max_editText);
+        final RadioGroup result = (RadioGroup) view.findViewById(R.id.FCS_Result_RadioGroup);
+        final ProgressBar prbar = (ProgressBar) view.findViewById(R.id.FCS_progressBar);
+        prbar.setVisibility(View.INVISIBLE);
+        prbar.setMax(3);
+        Button search = (Button) view.findViewById(R.id.FCS_Search_Button);
+        search.setOnClickListener(new View.OnClickListener() {
+            String resultfor = null;
+            public void onClick(View v) {
+                if(DataProvider.INSTANCE.testConnection()){
+                    prbar.setVisibility(View.VISIBLE);
+                    prbar.setProgress(1);
+                    switch (result.getCheckedRadioButtonId()) {
+                        case R.id.FCS_result_white_radioButton:
+                            resultfor = "1-0";
+                            break;
+                        case R.id.FCS_result_black_radioButton:
+                            resultfor = "0-1";
+                            break;
+                        case R.id.FCS_result_draw_radioButton:
+                            resultfor = "1/2-1/2";
+                            break;
+                    }
+                    prbar.setProgress(2);
+                    List<Game> games = DataProvider.INSTANCE.requestGameList(resultfor, min.getText().toString(),
+                            max.getText().toString(), game.getW()[0], game.getW()[1],
+                            game.getW()[2], null, null, null, null);
+                    prbar.setProgress(3);
+                    mListener.fromCompareScreenTo(OnFragmentInteractionListener.CompareScreenOptions.GAMESEARCHRESULTLIST, games);
+                }else{
+                    Toast.makeText(view.getContext(), "Connection failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        return view;
     }
 
     @Override
@@ -103,8 +116,10 @@ public class CompareScreen extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public enum CompareScreenOptions{
+            GAMESEARCHRESULTLIST
+        }
+        public void fromCompareScreenTo(CompareScreenOptions options, List<Game> listOfGames);
     }
 
 }

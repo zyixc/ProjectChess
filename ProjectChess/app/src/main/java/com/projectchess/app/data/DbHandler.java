@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Inholland on 15-5-2014.
  */
 public class DbHandler extends SQLiteOpenHelper{
+    //TODO not implemented!!
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "ChessMaster";
     private static final String TABLE_GAMES = "games";

@@ -1,7 +1,5 @@
 package com.projectchess.app.data;
 
-import android.util.Log;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,14 +15,18 @@ import java.util.List;
  */
 public enum DataProvider {
     INSTANCE;
-    private final static String hostname = "10.0.2.2";
-    private final static int port = 8080;
+    private String hostname = "10.0.2.2";
+    private int port = 8080;
     private ObjectMapper mapper = new ObjectMapper();
-    private static Socket socket;
-    private static InputStream is;
-    private static OutputStream os;
-    private static BufferedReader in;
+    private Socket socket;
+    private InputStream is;
+    private OutputStream os;
+    private BufferedReader in;
 
+    public void setPreferences(String hostname, int port){
+        this.hostname = hostname;
+        this.port = port;
+    }
 
     private boolean openConnection(){
         try{

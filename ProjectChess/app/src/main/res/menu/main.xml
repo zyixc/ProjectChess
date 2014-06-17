@@ -5,4 +5,11 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+
+    <item android:id="@+id/action_player_search_screen"
+        android:title="@string/action_player_search_screen"
+        android:showAsAction="always" />
+    <item android:id="@+id/action_game_search_screen"
+        android:title="@string/action_game_search_screen"
+        android:showAsAction="always" />
 </menu>
