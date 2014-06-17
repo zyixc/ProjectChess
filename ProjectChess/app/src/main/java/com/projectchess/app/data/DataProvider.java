@@ -2,6 +2,7 @@ package com.projectchess.app.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,10 +14,11 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.List;
 
+
 /**
  * Created by zyixc on 15-5-2014.
  */
-public enum DataProvider {
+public enum DataProvider{
     INSTANCE;
     private String hostname;
     private int port;
@@ -28,13 +30,13 @@ public enum DataProvider {
 
     public void initDataProvider(Context context){
         SharedPreferences prefs = context.getSharedPreferences("",Context.MODE_PRIVATE);
-        hostname = prefs.getString("ip","192.168.178.25");
+        hostname = prefs.getString("ip","192.168.178.33");
         port = prefs.getInt("port",8080);
     }
 
     private boolean openConnection(){
         try{
-            socket = new Socket(hostname,port);
+            socket = new Socket(hostname, port);
             is = socket.getInputStream();
             os = socket.getOutputStream();
             in = new BufferedReader(new InputStreamReader(is));
@@ -57,55 +59,102 @@ public enum DataProvider {
     }
 
     public boolean testConnection(){
-        if(openConnection()){
-            closeConnection();
-            return true;
-        }return false;
+        boolean result = false;
+        DownloadTestConnection test = new DownloadTestConnection();
+        test.execute("");
+        try{
+            result = test.get();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
-    public Player requestPlayer(String id){
-        try{
+    private class DownloadTestConnection extends AsyncTask<String, Void, Boolean>{
+        @Override
+        protected Boolean doInBackground(String... arg){
+            if(openConnection()){
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    public Player requestPlayer(String id) {
+        try {
             openConnection();
-            os.write(("request.player?"+id+"\n").getBytes());
+            os.write(("request.player?" + id + "\n").getBytes());
             os.flush();
             String answer;
-            if((answer = in.readLine())!=null){
+            if ((answer = in.readLine()) != null) {
                 Player player = mapper.readValue(answer, Player.class);
                 closeConnection();
                 return player;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
     public List<Player> requestPlayerList(String namestring){
+        List<Player> playerList = null;
+        DownloadPlayerList dp = new DownloadPlayerList();
+        dp.execute(namestring);
         try{
-            openConnection();
-            os.write(("request.players?"+namestring+"\n").getBytes());
-            os.flush();
-            String answer;
-            if((answer = in.readLine()) != null) {
-                ObjectMapper mapper = new ObjectMapper();
-                List<Player> players = mapper.readValue(answer, new TypeReference<List<Player>>() { });
-                closeConnection();
-                return players;
-            }
+            playerList = dp.get();
         }catch(Exception e){
             e.printStackTrace();
         }
-        return null;
+        return playerList;
+    }
+
+    private class DownloadPlayerList extends AsyncTask<String, Void, List<Player>>{
+        @Override
+        protected List<Player> doInBackground(String... arg){
+            try{
+                openConnection();
+                os.write(("request.players?"+arg[0]+"\n").getBytes());
+                os.flush();
+                String answer;
+                if((answer = in.readLine()) != null) {
+                    ObjectMapper mapper = new ObjectMapper();
+                    List<Player> players = mapper.readValue(answer, new TypeReference<List<Player>>() { });
+                    closeConnection();
+                    return players;
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 
     public List<Game> requestGameList(String resultfor, String minrating, String maxrating, String whiteopening1,
                                       String whiteopening2, String whiteopening3, String blackopening1, String blackopening2,
                                       String blackopening3, String eco){
+        String[] args = {resultfor,minrating,maxrating,whiteopening1,whiteopening2,whiteopening3,blackopening1,blackopening2,
+        blackopening3,eco};
+        List<Game> gameList = null;
+        DownloadGameList dg = new DownloadGameList();
+        dg.execute(args);
         try{
+            gameList = dg.get();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return gameList;
+    }
+
+    private class DownloadGameList extends AsyncTask<String[], Void, List<Game>>{
+        @Override
+        protected List<Game> doInBackground(String[]... arg){
+            try{
             openConnection();
-            os.write(("request.games?"+resultfor+"&"+minrating+"&"+maxrating+"&"+whiteopening1+"&"
-                    +whiteopening2+"&"+whiteopening3+"&"+blackopening1+"&"+blackopening2+"&"+blackopening2+"&"
-                    +blackopening2+"&"+"\n").getBytes());
+            os.write(("request.games?"+arg[0][0]+"&"+arg[0][1]+"&"+arg[0][2]+"&"+arg[0][3]+"&"
+                    +arg[0][4]+"&"+arg[0][5]+"&"+arg[0][6]+"&"+arg[0][7]+"&"+arg[0][8]+"&"
+                    +arg[0][9]+"&"+"\n").getBytes());
             os.flush();
             String answer;
             if((answer = in.readLine()) != null) {
@@ -118,9 +167,8 @@ public enum DataProvider {
             e.printStackTrace();
         }
         return null;
+        }
     }
-
-
 
 }
 

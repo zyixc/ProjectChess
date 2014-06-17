@@ -48,6 +48,7 @@ public class DatabaseHandler {
                 player = getGamesFromPlayer(player);
                 //player.calculateNeededData();
                 result.add(player);
+                System.out.print("#");
             }
             return result;
         }catch(Exception e){
@@ -110,9 +111,10 @@ public class DatabaseHandler {
         StringBuilder query = new StringBuilder();
         query.append("SELECT * FROM `games` WHERE ");
         if (resultfor.equals("null")) query.append("1 ");
-        else if (resultfor.equals("w")) query.append("`result` = '1-0' ");
-        else if (resultfor.equals("b")) query.append("`result` = '0-1' ");
-        else if (resultfor.equals("d")) query.append("`result` = '1/2-1/2' ");
+        else query.append(resultfor+" ");
+//        else if (resultfor.equals("w")) query.append("`result` = '1-0' ");
+//        else if (resultfor.equals("b")) query.append("`result` = '0-1' ");
+//        else if (resultfor.equals("d")) query.append("`result` = '1/2-1/2' ");
         if (!minrating.equals("null")) query.append("AND `white_elo` > " + minrating + " AND `black_elo` > " + minrating + " ");
         if (!minrating.equals("null")) query.append("AND `white_elo` < " + maxrating + " AND `black_elo` < " + maxrating + " ");
         if (!whiteopening1.equals("null")) query.append("AND `w1` = '" + whiteopening1 + "' ");

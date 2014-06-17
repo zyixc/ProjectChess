@@ -29,7 +29,7 @@ public class WorkerRunnable implements Runnable{
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
         ){
             System.out.println("Connected from " + clientSocket .getInetAddress() + " on port " + clientSocket .getPort()
-                    + " to port " + clientSocket .getLocalPort() + " of " + clientSocket .getLocalAddress() + " " + System.getProperty("user.dir"));
+                    + " to port " + clientSocket .getLocalPort() + " of " + clientSocket .getLocalAddress());
 
             String line = null;
             if((line = in.readLine()) != null) {
@@ -38,11 +38,11 @@ public class WorkerRunnable implements Runnable{
                 byte[] encoded = Files.readAllBytes(filepath);
                 os.writeBytes(new String(encoded, Charset.defaultCharset()));
                 os.flush();
-                System.out.println("request succesfully handled: " + filepath.toString());
+                System.out.println(line+"; request succesfully handled: " + filepath.toString());
 
                 //delete file
-                Files.delete(filepath);
-                System.out.println("File deleted: " + filepath.toString());
+//                Files.delete(filepath);
+//                System.out.println("File deleted: " + filepath.toString());
             }
 
             System.out.println("Connection closed from " + clientSocket .getInetAddress() + " on port " + clientSocket .getPort()

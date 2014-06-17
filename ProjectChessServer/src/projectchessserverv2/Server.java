@@ -14,7 +14,8 @@ public class Server implements Runnable{
     private volatile boolean isStopped  = false;
     private Thread runningThread= null;
 
-    public Server(){
+    public Server(String port){
+        serverPort = Integer.parseInt(port);
     }
 
     public void run(){
@@ -60,7 +61,7 @@ public class Server implements Runnable{
     }
 
     public static void main(String[] args) {
-        Server server = new Server();
+        Server server = new Server(args[0]);
         System.out.println("SERVER STARTING!!");
         while(true) {
             new Thread(server).start();

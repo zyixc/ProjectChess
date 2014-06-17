@@ -87,7 +87,8 @@
             android:inputType="number"
             android:ems="4"
             android:id="@+id/fGSS_Rating_EditText_Min"
-            android:layout_gravity="right|top" />
+            android:layout_gravity="right|top"
+            android:text="@string/null_value" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -95,7 +96,8 @@
             android:inputType="number"
             android:ems="4"
             android:id="@+id/fGSS_Rating_EditText_Max"
-            android:layout_gravity="right|center_vertical" />
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/null_value" />
     </FrameLayout>
 
     <FrameLayout
@@ -143,7 +145,8 @@
             android:layout_gravity="right|top"
             android:inputType="textNoSuggestions"
             android:ems="5"
-            android:editable="false" />
+            android:editable="false"
+            android:text="@string/null_value" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -151,7 +154,8 @@
             android:id="@+id/fGSS_WhiteOpening_EditText_2nd"
             android:layout_gravity="right|center_vertical"
             android:ems="5"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -159,7 +163,8 @@
             android:id="@+id/fGSS_WhiteOpening_EditText_3rd"
             android:layout_gravity="right|bottom"
             android:ems="5"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
@@ -213,7 +218,8 @@
             android:id="@+id/fGSS_BlackOpening_EditText_1st"
             android:layout_gravity="right|top"
             android:ems="5"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -221,7 +227,8 @@
             android:id="@+id/fGSS_BlackOpening_EditText_2nd"
             android:layout_gravity="right|center_vertical"
             android:ems="5"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -229,7 +236,8 @@
             android:id="@+id/fGSS_BlackOpening_EditText_3rd"
             android:layout_gravity="right|bottom"
             android:ems="5"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
     </FrameLayout>
 
     <FrameLayout
@@ -252,7 +260,8 @@
             android:id="@+id/fGSS_Eco_EditText"
             android:layout_gravity="center"
             android:ems="3"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="@string/null_value" />
 
     </FrameLayout>
 

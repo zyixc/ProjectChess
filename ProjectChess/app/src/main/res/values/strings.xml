@@ -7,6 +7,7 @@
     <string name="action_game_search_screen">GS</string>
     <string name="start_screen_player_search_button">Search Player</string>
     <string name="start_screen_game_search_button">Search Game</string>
+    <string name="null_value">null</string>
 
     <!--compare screen -->
     <string name="compare_screen_result">Result:</string>

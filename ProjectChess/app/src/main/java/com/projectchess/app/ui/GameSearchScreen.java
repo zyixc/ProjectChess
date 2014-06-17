@@ -78,6 +78,9 @@ public class GameSearchScreen extends Fragment {
                         case R.id.fGSS_Result_RadioButton_Draw:
                             resultfor = "1/2-1/2";
                             break;
+                        default:
+                            resultfor= "null";
+                            break;
                     }
                     prbar.setProgress(2);
                     List<Game> games = DataProvider.INSTANCE.requestGameList(resultfor, min.getText().toString(),

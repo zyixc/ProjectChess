@@ -20,7 +20,7 @@ public class RequestHandler {
 
     public Path processRequest(){
         db = new DatabaseHandler();
-        String prequest[] = request.split("[\\.\\?=&@]+");
+        String[] prequest = request.split("[\\.\\?=&@]+");
         switch(prequest[1]){
             case "player":
                 RequestResult<Player> player = new RequestResult<>(requestTypePlayer(prequest[2]));
@@ -42,6 +42,7 @@ public class RequestHandler {
 
     private List<Player> requestTypePlayers(String prequest){
         List<Player> players = db.getPlayers(prequest);
+        System.out.println("ya "+players.toString());
         return players;
     }
 

@@ -26,8 +26,6 @@ public class RequestResult<T> {
             } else {
                 System.out.println("Failed to create directory!");
             }
-        }else{
-            System.out.println("Something is wrong");
         }
         String filepath = System.getProperty("user.dir") + File.separator + "JSON_files" + File.separator + result.hashCode()+".json";
         try {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,7 +128,9 @@ public class GameSearchResultListScreen extends Fragment {
             ViewHolderItem viewHolder = (ViewHolderItem) convertView.getTag();
             Game game = gamesList.get(position);
             viewHolder.nameWhite.setText(game.getWhite());
+            Log.i("namewhite", game.getWhite());
             viewHolder.ratingWhite.setText(game.getWhite_elo());
+            Log.i("elowhite", Integer.toString(game.getWhite_elo()));
             viewHolder.nameBlack.setText(game.getBlack());
             viewHolder.ratingBlack.setText(game.getBlack_elo());
             viewHolder.result.setText(game.getResult());

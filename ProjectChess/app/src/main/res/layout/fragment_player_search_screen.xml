@@ -19,7 +19,7 @@
             android:id="@+id/FPSS_lastname_editText"
             android:ems="10"
             android:layout_gravity="center"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textPersonName" />
 
         <Button
             android:layout_width="100sp"
