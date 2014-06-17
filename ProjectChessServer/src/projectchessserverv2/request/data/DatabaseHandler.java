@@ -44,7 +44,7 @@ public class DatabaseHandler {
             spn.setString(1, player_name + "%");
             ResultSet spn_rs = spn.executeQuery();
             while(spn_rs.next()){
-                Player player = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3))
+                Player player = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3));
                 player = getGamesFromPlayer(player);
                 //player.calculateNeededData();
                 result.add(player);

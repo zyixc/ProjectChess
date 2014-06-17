@@ -36,12 +36,12 @@ public class MainActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TODO TODO
-        SharedPreferences connectionDetails = this.getSharedPreferences("mypreferences",MODE_PRIVATE);
-        DataProvider.INSTANCE.setPreferences(connectionDetails.getString("ip",""),connectionDetails.getInt("port",0));
+        DataProvider.INSTANCE.initDataProvider(this);
 
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction().add(R.id.container, StartScreen.newInstance()).commit();
+            getFragmentManager().beginTransaction().add(R.id.container, StartScreen.newInstance())
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 
@@ -74,6 +74,15 @@ public class MainActivity extends FragmentActivity
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(getFragmentManager().getBackStackEntryCount()==1){
+            this.finish();
+        }else{
+            getFragmentManager().popBackStack();
+        }
     }
 
     public void fromStartScreenTo(StartScreenOptions options){

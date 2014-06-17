@@ -1,5 +1,10 @@
 package com.projectchess.app.data;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -15,17 +20,18 @@ import java.util.List;
  */
 public enum DataProvider {
     INSTANCE;
-    private String hostname = "10.0.2.2";
-    private int port = 8080;
+    private String hostname;
+    private int port;
     private ObjectMapper mapper = new ObjectMapper();
     private Socket socket;
     private InputStream is;
     private OutputStream os;
     private BufferedReader in;
 
-    public void setPreferences(String hostname, int port){
-        this.hostname = hostname;
-        this.port = port;
+    public void initDataProvider(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("",Context.MODE_PRIVATE);
+        hostname = prefs.getString("ip","10.0.2.2");
+        port = prefs.getInt("port",8080);
     }
 
     private boolean openConnection(){

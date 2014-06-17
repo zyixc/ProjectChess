@@ -1,4 +1,4 @@
-package com.projectchess.app.data;
+package projectchessserverv2.request.data;
 
 import java.util.ArrayList;
 import java.util.Collections;
