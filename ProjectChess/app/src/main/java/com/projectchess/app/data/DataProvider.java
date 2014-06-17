@@ -1,9 +1,7 @@
 package com.projectchess.app.data;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +28,7 @@ public enum DataProvider {
 
     public void initDataProvider(Context context){
         SharedPreferences prefs = context.getSharedPreferences("",Context.MODE_PRIVATE);
-        hostname = prefs.getString("ip","10.0.2.2");
+        hostname = prefs.getString("ip","192.168.178.25");
         port = prefs.getInt("port",8080);
     }
 

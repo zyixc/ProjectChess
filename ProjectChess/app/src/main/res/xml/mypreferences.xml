@@ -5,7 +5,7 @@
     <EditTextPreference
         android:key="ip"
         android:title="Ip address server"
-        android:defaultValue="10.2.2.22"/>
+        android:defaultValue="192.168.178.25"/>
 
     <EditTextPreference
         android:key="port"

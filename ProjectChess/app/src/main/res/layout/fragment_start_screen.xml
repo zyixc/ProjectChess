@@ -43,5 +43,5 @@
         android:layout_below="@+id/FSS_player_search_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="@string/game_detail_screen_compare_button" />
+        android:text="@string/start_screen_game_search_button" />
 </RelativeLayout>

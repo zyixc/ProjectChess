@@ -3,6 +3,7 @@ package projectchessserverv2.request;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -18,6 +19,16 @@ public class RequestResult<T> {
     }
 
     public Path getJSONPath(){
+        File file = new File(System.getProperty("user.dir") + File.separator + "JSON_files");
+        if (!file.exists()) {
+            if (file.mkdir()) {
+                System.out.println("Directory is created!");
+            } else {
+                System.out.println("Failed to create directory!");
+            }
+        }else{
+            System.out.println("Something is wrong");
+        }
         String filepath = System.getProperty("user.dir") + File.separator + "JSON_files" + File.separator + result.hashCode()+".json";
         try {
             mapper.writeValue(new File(filepath), result);

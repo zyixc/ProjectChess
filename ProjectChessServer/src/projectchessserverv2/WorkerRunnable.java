@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by Jakob Jenkov
@@ -28,7 +29,7 @@ public class WorkerRunnable implements Runnable{
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
         ){
             System.out.println("Connected from " + clientSocket .getInetAddress() + " on port " + clientSocket .getPort()
-                    + " to port " + clientSocket .getLocalPort() + " of " + clientSocket .getLocalAddress());
+                    + " to port " + clientSocket .getLocalPort() + " of " + clientSocket .getLocalAddress() + " " + System.getProperty("user.dir"));
 
             String line = null;
             if((line = in.readLine()) != null) {
