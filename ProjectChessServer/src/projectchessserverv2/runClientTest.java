@@ -15,7 +15,7 @@ public class runClientTest {
 //            System.out.println(dimitri.getFirstname()+" "+dimitri.getLastname());
 //        else
 //            System.out.println("Object returned null!");
-        List<Player> playerlist = Client.INSTANCE.requestPlayerList("Reinderman");
+        List<Player> playerlist = Client.INSTANCE.requestPlayerList("Aagaard");
         for(Player player: playerlist){
             System.out.println(player.getFirstname()+" "+player.getLastname());
         }

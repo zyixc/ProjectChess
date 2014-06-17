@@ -41,8 +41,7 @@ public class WorkerRunnable implements Runnable{
                 System.out.println(line+"; request succesfully handled: " + filepath.toString());
 
                 //delete file
-//                Files.delete(filepath);
-//                System.out.println("File deleted: " + filepath.toString());
+                Files.delete(filepath);
             }
 
             System.out.println("Connection closed from " + clientSocket .getInetAddress() + " on port " + clientSocket .getPort()

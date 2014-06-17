@@ -61,7 +61,7 @@ public class Player{
         w3 = entryList.get(2).getKey();
 
         Game ratinggame = white_games.get(white_games.size()-1);
-        rating = ratinggame.getWhite();
+        rating = Integer.toString(ratinggame.getWhite_elo());
 
         int number_games = white_games.size();
         number_games += black_games.size();

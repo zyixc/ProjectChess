@@ -1,9 +1,8 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +55,13 @@ public class PlayerProfileScreen extends Fragment {
 
         name.setText(player.getFirstname()+" "+player.getLastname());
         rating.setText(player.getRating());
+        if(player.getNumberofgames()!=null) numberofgames.setEnabled(true);
         numberofgames.setText(player.getNumberofgames());
+        if(player.getW1()!=null) prefw1.setEnabled(true);
         prefw1.setText(player.getW1());
+        if(player.getW2()!=null) prefw2.setEnabled(true);
         prefw2.setText(player.getW2());
+        if(player.getW3()!=null) prefw3.setEnabled(true);
         prefw3.setText(player.getW3());
 
         numberofgames.setOnClickListener(new View.OnClickListener() {

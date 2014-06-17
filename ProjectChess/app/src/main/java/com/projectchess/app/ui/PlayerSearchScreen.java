@@ -1,9 +1,8 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,8 @@ import android.widget.Toast;
 
 import com.projectchess.app.R;
 import com.projectchess.app.data.DataProvider;
-import com.projectchess.app.data.Game;
 import com.projectchess.app.data.Player;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,10 +52,13 @@ public class PlayerSearchScreen extends Fragment {
             public void onClick(View v) {
                 if (DataProvider.INSTANCE.testConnection()) {
                     if (!lastName.getText().toString().equals("")) {
-                        mListener.fromPlayerSearchScreenTo(OnFragmentInteractionListener
-                                        .PlayerSearchScreenOptions.PLAYERSEARCHRESULTLISTSCREEN,
-                                DataProvider.INSTANCE.requestPlayerList(lastName.getText().toString())
-                        );
+                        List<Player> playerList = DataProvider.INSTANCE.requestPlayerList(lastName.getText().toString());
+                        if(playerList.isEmpty()){
+                            Toast.makeText(view.getContext(), "No Results Found", Toast.LENGTH_SHORT).show();
+                        }else {
+                            mListener.fromPlayerSearchScreenTo(OnFragmentInteractionListener
+                                    .PlayerSearchScreenOptions.PLAYERSEARCHRESULTLISTSCREEN, playerList);
+                        }
                     } else {
                         Toast.makeText(view.getContext(), "Enter a Name", Toast.LENGTH_SHORT).show();
                     }

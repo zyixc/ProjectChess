@@ -30,7 +30,7 @@ public class DatabaseHandler {
                 result = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3));
             }
             result = getGamesFromPlayer(result);
-            //result.calculateNeededData();
+            result.calculateNeededData();
             return result;
         }catch(Exception e){
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class DatabaseHandler {
             while(spn_rs.next()){
                 Player player = new Player(spn_rs.getString(1),spn_rs.getString(2), spn_rs.getString(3));
                 player = getGamesFromPlayer(player);
-                //player.calculateNeededData();
+                player.calculateNeededData();
                 result.add(player);
                 System.out.print("#");
             }

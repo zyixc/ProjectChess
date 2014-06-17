@@ -1,9 +1,8 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +18,6 @@ import com.projectchess.app.data.Game;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CompareScreen.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CompareScreen#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
 public class CompareScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
     private static Game game;
@@ -79,7 +69,11 @@ public class CompareScreen extends Fragment {
                             max.getText().toString(), game.getW()[0], game.getW()[1],
                             game.getW()[2], null, null, null, null);
                     prbar.setProgress(3);
-                    mListener.fromCompareScreenTo(OnFragmentInteractionListener.CompareScreenOptions.GAMESEARCHRESULTLIST, games);
+                    if(games.isEmpty()){
+                        Toast.makeText(view.getContext(), "No Results Found", Toast.LENGTH_SHORT).show();
+                    }else {
+                        mListener.fromCompareScreenTo(OnFragmentInteractionListener.CompareScreenOptions.GAMESEARCHRESULTLIST, games);
+                    }
                 }else{
                     Toast.makeText(view.getContext(), "Connection failed", Toast.LENGTH_SHORT).show();
                 }
@@ -105,16 +99,6 @@ public class CompareScreen extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         public enum CompareScreenOptions{
             GAMESEARCHRESULTLIST

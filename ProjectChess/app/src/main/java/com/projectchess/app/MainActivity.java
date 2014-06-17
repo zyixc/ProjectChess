@@ -1,7 +1,6 @@
 package com.projectchess.app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -20,7 +19,6 @@ import com.projectchess.app.ui.PlayerSearchScreen;
 import com.projectchess.app.ui.StartScreen;
 
 import java.util.List;
-
 
 public class MainActivity extends FragmentActivity
         implements StartScreen.OnFragmentInteractionListener,

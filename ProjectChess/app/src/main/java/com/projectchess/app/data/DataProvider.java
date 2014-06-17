@@ -29,8 +29,8 @@ public enum DataProvider{
     private BufferedReader in;
 
     public void initDataProvider(Context context){
-        SharedPreferences prefs = context.getSharedPreferences("",Context.MODE_PRIVATE);
-        hostname = prefs.getString("ip","192.168.178.33");
+        SharedPreferences prefs = context.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+        hostname = prefs.getString("ip","10.0.2.2");
         port = prefs.getInt("port",8080);
     }
 

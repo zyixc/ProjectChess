@@ -1,12 +1,9 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.app.ListFragment;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,23 +13,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.projectchess.app.R;
-import com.projectchess.app.data.DataProvider;
 import com.projectchess.app.data.Player;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PlayerSearchResultListScreen.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PlayerSearchResultListScreen#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
 public class PlayerSearchResultListScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
     public static List<Player> listOfPlayers;
@@ -87,16 +71,6 @@ public class PlayerSearchResultListScreen extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         enum PlayerSearchResultListScreenOptions{
             PLAYERPROFILESCREEN
@@ -114,21 +88,6 @@ public class PlayerSearchResultListScreen extends Fragment {
             this.playerList = players;
             this.context = context;
         }
-
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent){
-//            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            View rowView = inflater.inflate(R.layout.fragment_player_search_result_list_row, parent, false);
-//            TextView name = (TextView) rowView.findViewById(R.id.fPSSLR_Name_TextView);
-//            TextView rating = (TextView) rowView.findViewById(R.id.fPSSLR_Rating_TextView);
-//            TextView numberofgames = (TextView) rowView.findViewById(R.id.fPSSLR_NumberOfGames_TextView);
-//
-//            Player temp = playerList.get(position);
-//            name.setText(temp.getFirstname()+" "+temp.getLastname());
-//            rating.setText(temp.getRating());
-//            numberofgames.setText(temp.getNumberofgames());
-//            return rowView;
-//        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent){

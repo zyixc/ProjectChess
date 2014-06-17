@@ -18,6 +18,7 @@ import java.util.List;
  */
 public enum Client {
     INSTANCE;
+    ;
     private final static String hostname = "localhost";
     private final static int port = 8080;
     private ObjectMapper mapper = new ObjectMapper();

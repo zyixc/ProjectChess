@@ -1,9 +1,8 @@
 package com.projectchess.app.ui;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +18,6 @@ import com.projectchess.app.data.Game;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GameSearchScreen.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GameSearchScreen#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
 public class GameSearchScreen extends Fragment {
     private OnFragmentInteractionListener mListener;
 
@@ -88,7 +78,11 @@ public class GameSearchScreen extends Fragment {
                             w3.getText().toString(), b1.getText().toString(), b2.getText().toString(),
                             b3.getText().toString(), eco.getText().toString());
                     prbar.setProgress(3);
-                    mListener.fromGameSearchScreenTo(OnFragmentInteractionListener.GameSearchScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+                    if(games.isEmpty()){
+                        Toast.makeText(view.getContext(), "No Results Found", Toast.LENGTH_SHORT).show();
+                    }else {
+                        mListener.fromGameSearchScreenTo(OnFragmentInteractionListener.GameSearchScreenOptions.GAMESEARCHRESULTLISTSCREEN, games);
+                    }
                 }else{
                     Toast.makeText(view.getContext(),"Connection failed",Toast.LENGTH_SHORT).show();
                 }
@@ -114,16 +108,6 @@ public class GameSearchScreen extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         enum GameSearchScreenOptions{
             GAMESEARCHRESULTLISTSCREEN

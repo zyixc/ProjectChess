@@ -30,7 +30,8 @@
             android:id="@+id/fGSRLSR_nameBlack_TextView"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:clickable="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +74,8 @@
             android:id="@+id/FPPS_player_profile_name_textView"
             android:layout_alignTop="@+id/fGSRLSR_nameBlack_TextView"
             android:layout_alignLeft="@+id/FPPS_player_profile_rating_textView"
-            android:layout_alignStart="@+id/FPPS_player_profile_rating_textView" />
+            android:layout_alignStart="@+id/FPPS_player_profile_rating_textView"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +94,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/FPPS_player_profile_number_of_games_textView"
             android:layout_alignTop="@+id/fGSRLSR_ratingWhite_TextView"
-            android:layout_toRightOf="@+id/fGSRLSR_nameWhite_TextView" />
+            android:layout_toRightOf="@+id/fGSRLSR_nameWhite_TextView"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="60sp"
@@ -105,7 +108,8 @@
             android:layout_alignTop="@+id/FPPS_player_profile_pref_w2"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="36dp" />
+            android:layout_marginRight="36dp"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="60sp"
@@ -116,7 +120,8 @@
             android:layout_gravity="center"
             android:background="@drawable/customborder"
             android:layout_alignTop="@+id/FPPS_player_profile_pref_w3"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="60sp"
@@ -131,7 +136,8 @@
             android:layout_below="@+id/fGSRLSR_nameWhite_TextView"
             android:layout_alignLeft="@+id/fGSRLSR_nameWhite_TextView"
             android:layout_alignStart="@+id/fGSRLSR_nameWhite_TextView"
-            android:layout_marginTop="51dp" />
+            android:layout_marginTop="51dp"
+            android:enabled="false" />
 
     </RelativeLayout>
 </FrameLayout>
