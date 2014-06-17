@@ -8,6 +8,8 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 
+import com.projectchess.app.data.DataProvider;
+
 public class SettingsActivity extends PreferenceActivity implements
         OnSharedPreferenceChangeListener {
 
@@ -19,6 +21,7 @@ public class SettingsActivity extends PreferenceActivity implements
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             initSummary(getPreferenceScreen().getPreference(i));
         }
+        DataProvider.INSTANCE.initDataProvider(getPreferenceScreen().getSharedPreferences());
     }
 
     @Override
@@ -39,6 +42,7 @@ public class SettingsActivity extends PreferenceActivity implements
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                           String key) {
         updatePreferences(findPreference(key));
+        DataProvider.INSTANCE.initDataProvider(sharedPreferences);
     }
 
     private void initSummary(Preference p) {

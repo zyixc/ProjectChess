@@ -49,19 +49,21 @@ public class Player{
             }
         }
         Set<Map.Entry<String, Integer>> entrySet = prefmoves.entrySet();
-        List<Map.Entry<String, Integer>> entryList = new ArrayList<Map.Entry<String, Integer>>(entrySet);
-        Collections.sort(entryList, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> stringIntegerEntry, Map.Entry<String, Integer> stringIntegerEntry2) {
-                return stringIntegerEntry.getValue().compareTo(stringIntegerEntry2.getValue());
-            }
-        });
-        w1 = entryList.get(0).getKey();
-        w2 = entryList.get(1).getKey();
-        w3 = entryList.get(2).getKey();
+        if(!entrySet.isEmpty()) {
+            List<Map.Entry<String, Integer>> entryList = new ArrayList<Map.Entry<String, Integer>>(entrySet);
+            Collections.sort(entryList, new Comparator<Map.Entry<String, Integer>>() {
+                @Override
+                public int compare(Map.Entry<String, Integer> stringIntegerEntry, Map.Entry<String, Integer> stringIntegerEntry2) {
+                    return stringIntegerEntry.getValue().compareTo(stringIntegerEntry2.getValue());
+                }
+            });
+            w1 = entryList.get(0).getKey();
+            w2 = entryList.get(1).getKey();
+            w3 = entryList.get(2).getKey();
 
-        Game ratinggame = white_games.get(white_games.size()-1);
-        rating = Integer.toString(ratinggame.getWhite_elo());
+            Game ratinggame = white_games.get(white_games.size()-1);
+            rating = Integer.toString(ratinggame.getWhite_elo());
+        }
 
         int number_games = white_games.size();
         number_games += black_games.size();

@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -27,14 +28,27 @@ public enum DataProvider{
     private InputStream is;
     private OutputStream os;
     private BufferedReader in;
+    private SharedPreferences prefs;
 
-    public void initDataProvider(Context context){
-        SharedPreferences prefs = context.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+    public void initDataProvider(SharedPreferences sp){
+        prefs = sp;
+        if (!prefs.contains("ip")) writeDefaults();
+    }
+
+    private void writeDefaults() {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("ip", "10.0.2.2");
+        editor.putString("port", "8080");
+        editor.apply();
+    }
+
+    private void updateConnectionData() {
         hostname = prefs.getString("ip","10.0.2.2");
-        port = prefs.getInt("port",8080);
+        port = Integer.parseInt(prefs.getString("port", "8080"));
     }
 
     private boolean openConnection(){
+        updateConnectionData();
         try{
             socket = new Socket(hostname, port);
             is = socket.getInputStream();
@@ -107,7 +121,7 @@ public enum DataProvider{
         }catch(Exception e){
             e.printStackTrace();
         }
-        return playerList;
+        return playerList == null ? Arrays.<Player>asList() : playerList;
     }
 
     private class DownloadPlayerList extends AsyncTask<String, Void, List<Player>>{
@@ -144,7 +158,7 @@ public enum DataProvider{
         }catch(Exception e){
             e.printStackTrace();
         }
-        return gameList;
+        return gameList == null ? Arrays.<Game>asList() : gameList;
     }
 
     private class DownloadGameList extends AsyncTask<String[], Void, List<Game>>{
