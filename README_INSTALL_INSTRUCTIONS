@@ -1,0 +1,17 @@
+com.projectchess.app-1.apk
+should be installed on an android phone 4.0-4.4.2
+inApp settings can be changed to the correct ip and port numbers
+
+ProjectChessSever.jar should be run via commandline interface + port number
+for example: java -jar ProjectChessSever.jar 8080
+
+Database should be run {-u root} can be downloaded @ 
+https://mega.co.nz/#!Y01QGBZK!7VLXSSpW-hXU2uyZc3X2EmRV_zul21g5JgSeUSngeHs
+
+
+
+
+
+//known problems
+-chessboard doesn't always load
+-mainactivity sometimes to busy, some stuff should be moved to background.

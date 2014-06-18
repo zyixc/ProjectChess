@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="jackson-core-2.4.0">
+    <archive path="/home/zyixc/Downloads/jackson-core-2.4.0.jar" />
+  </library>
+  <library name="jackson-databind-2.4.0">
+    <archive path="/home/zyixc/Downloads/jackson-databind-2.4.0.jar" />
+  </library>
+  <library name="jackson-annotations-2.4.0">
+    <archive path="/home/zyixc/Downloads/jackson-annotations-2.4.0.jar" />
+  </library>
+  <library name="mysql-connector-java-5.1.31-bin">
+    <archive path="/home/zyixc/Downloads/mysql-connector-java-5.1.31/mysql-connector-java-5.1.31-bin.jar" />
+  </library>
+</eclipse-userlibraries>
+

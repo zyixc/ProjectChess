@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -47,6 +48,9 @@ public class GameProfileScreen extends Fragment {
         final TextView black = (TextView) view.findViewById(R.id.fGPS_Black_Put_TextView);
         final TextView result = (TextView) view.findViewById(R.id.fGPS_Result_Put_TextView);
         final Button compare = (Button) view.findViewById(R.id.fGPS_Compare_Button);
+        WebView webview = (WebView) view.findViewById(R.id.fGPS_WebView);
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl("http://treegarden.nl/chess/index.html?moves="+game.getMoves());
         compare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
